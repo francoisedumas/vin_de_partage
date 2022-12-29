@@ -74,13 +74,5 @@ test:
 # URL environment variable explicitly:
 #
 #   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
-#
-# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
-# for a full overview on how database connection configuration can be specified.
-#
-production:
   <<: *default
-  database: vin_de_partage_production
-  username: vin_de_partage
-  password: <%= ENV["VIN_DE_PARTAGE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["POSTGRESQL_ADDON_URI"] %>
