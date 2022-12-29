@@ -24,6 +24,20 @@ module VinDePartage
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
+    config.generators do |generate|
+      generate.helper false
+      # Uncomment to use slim
+      # generate.template_engine :slim
+      # Uncomment to use rspec
+      # generate.test_framework :rspec
+    end
+
+    config.time_zone = "Europe/Paris"
+    config.i18n.default_locale = :fr
+    config.i18n.fallbacks = [:en]
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{rb,yml}")]
+
+    config.active_job.queue_adapter = :sidekiq
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

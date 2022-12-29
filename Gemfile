@@ -67,3 +67,10 @@ group :development do
   # gem "spring"
 end
 
+gem "rails-i18n", "~> 7.0.0"
+gem "enumerize"
+
+group :development, :test do
+  gem "pry-byebug"
+  gem "pry-rails"
+end
