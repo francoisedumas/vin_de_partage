@@ -6,10 +6,13 @@
   = link_to edit_profile_path, class: "flex-shrink-0 group block" do
     .flex.items-center
       div
-        = image_tag "kitten.jpg", class: "inline-block h-9 w-9 rounded-full", alt: "profile"
+        - if current_user.photo.attached?
+          = cl_image_tag current_user.photo.key, class: "inline-block h-9 w-9 rounded-full", alt: "profile"
+        - else
+          = image_tag "kitten.jpg", class: "inline-block h-9 w-9 rounded-full", alt: "profile"
       .ml-3
         p.text-sm.font-medium.text-white = current_user.full_name
-        p.text-xs.font-medium.text-indigo-200.group-hover:text-white = t(".view_profile")
+        p.text-xs.font-medium.text-red-200.group-hover:text-white = t(".view_profile")
 
   = button_to destroy_user_session_path, method: :delete do
     i.fa-solid.fa-arrow-right-from-bracket.text-white

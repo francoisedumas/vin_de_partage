@@ -9,7 +9,8 @@ francois = User.create!(
   first_name: 'Francois',
   last_name: 'Dumas',
   email: 'dumas.francois@lewagon.fr',
-  password: '123456'
+  password: '123456',
+  role: "admin"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/33062224")
