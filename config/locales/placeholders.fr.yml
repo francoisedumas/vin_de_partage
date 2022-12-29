@@ -1,0 +1,5 @@
+fr:
+  placeholders:
+    email: alice.martin@example.com
+    first_name: Alice
+    last_name: Martin

@@ -1,0 +1,9 @@
+.max-w-screen-md
+  .shadow.sm:rounded-md.sm:overflow-hidden
+    .px-4.py-5.bg-white.space-y-6.sm:p-6
+      = content
+
+    .px-4.py-3.bg-gray-50.text-right.sm:px-6
+      .flex.justify-end.space-x-8
+        - actions.each do |action|
+          = action

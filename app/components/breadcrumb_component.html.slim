@@ -1,0 +1,16 @@
+div
+  nav.sm:hidden aria-label="Back"
+    = link_to back_path, class: "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700" do
+      i.fa-solid.fa-chevron-left.lex-shrink-0.-ml-1.mr-1.text-gray-400
+      span = t("back")
+  nav.hidden.sm:flex aria-label="Breadcrumb"
+    ol.flex.items-center.space-x-4 role="list"
+      - items.each do |item_title , path|
+        li.group
+          .flex.items-center.text-sm.group-first:items-start
+            i.fa-solid.fa-angle-right.flex-shrink-0.-ml-1.mr-1.text-gray-400.group-first:hidden
+            = link_to t(item_title.to_s), path, class: "group-first:ml-0 ml-4 font-medium text-gray-500 hover:text-gray-700"
+      li
+        .flex.items-center.text-sm
+          i.fa-solid.fa-angle-right.flex-shrink-0.-ml-1.mr-1.text-gray-400
+          span.ml-4.font-medium.text-gray-500.hover:text-gray-700 = title

@@ -1,0 +1,39 @@
+.relative.z-40.hidden.md:hidden role="dialog" aria-modal="true" data={ "sidebar-target": "container" }
+  .fixed.inset-0.bg-stone-600.bg-opacity-75.transition-opacity[
+    data={ "sidebar-target": "backdrop" }
+    data-transition-enter="ease-in-out duration-500"
+    data-transition-enter-start="opacity-0"
+    data-transition-enter-end="opacity-100"
+    data-transition-leave="ease-in-out duration-500"
+    data-transition-leave-start="opacity-100"
+    data-transition-leave-end="opacity-0"
+  ]
+  .fixed.inset-0.flex.z-40
+    .relative.flex-1.flex.flex-col.max-w-xs.w-full.bg-stone-900[
+      data={ "sidebar-target": "panel" }
+      data-transition-enter="transform transition ease-in-out duration-500 sm:duration-700"
+      data-transition-enter-start="-translate-x-full"
+      data-transition-enter-end="translate-x-0"
+      data-transition-leave="transform transition ease-in-out duration-500 sm:duration-700"
+      data-transition-leave-start="translate-x-0"
+      data-transition-leave-end="-translate-x-full"
+    ]
+      .absolute.top-0.right-0.-mr-12.pt-2[
+        data={ "sidebar-target": "closeButton" }
+        data-transition-enter="ease-in-out duration-500"
+        data-transition-enter-start="opacity-0"
+        data-transition-enter-end="opacity-100"
+        data-transition-leave="ease-in-out duration-500"
+        data-transition-leave-start="opacity-100"
+        data-transition-leave-end="opacity-0"
+      ]
+        = button_tag type: "button",
+          data: { action: "sidebar#hide" },
+          class: "ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" do
+          span.sr-only
+            | Close sidebar
+          svg.h-6.w-6.text-white[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"]
+            path[stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"]
+      = render "sidebar/content", media: :mobile
+
+    .flex-shrink-0.w-14[aria-hidden="true"]

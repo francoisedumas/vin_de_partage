@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -27,44 +29,15 @@ gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
 
-
-
-
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
-
-
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-
-
-
-
+gem "redis", "~> 4.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use Sass to process CSS
-
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-
-
-group :development, :test do
-
-
-end
-
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-
-
-
-
-
 end
 
 gem "rails-i18n", "~> 7.0.0"
@@ -78,6 +51,7 @@ end
 group :development, :test do
   gem "rubocop-rails", require: false
 end
+
 gem "slim-rails"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sidekiq"

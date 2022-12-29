@@ -1,0 +1,20 @@
+nav.mt-10.flex-1.px-2.space-y-1
+  = render MenuLinkComponent.new(title: t("menu.maintenance"),
+    icon: "fa-house",
+    path: maintenance_path,
+    policy: MaintenancePolicy.role_can_access?)
+
+  = render MenuLinkComponent.new(title: t("menu.admin"),
+    icon: "fa-house",
+    path: admin_path,
+    policy: AdminPolicy.role_can_access?)
+
+  = render MenuLinkComponent.new(title: t("menu.users"),
+    icon: "fa-user-group",
+    path: admin_users_path,
+    policy: AdminPolicy.role_can_access?)
+
+  = render MenuLinkComponent.new(title: "Projects", icon: "fa-folder-open", path: "#")
+  = render MenuLinkComponent.new(title: "Calendar", icon: "fa-calendar", path: "#")
+  = render MenuLinkComponent.new(title: "Documents", icon: "fa-inbox", path: "#")
+  = render MenuLinkComponent.new(title: "Reports", icon: "fa-chart-column", path: "#")

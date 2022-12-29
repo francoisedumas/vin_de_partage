@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include SetCurrentRequestDetails
   before_action :authenticate_user!

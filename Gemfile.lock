@@ -86,9 +86,6 @@ GEM
     connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
-    debug (1.7.1)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
     devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -110,12 +107,6 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.6.0)
-    irb (1.6.2)
-      reline (>= 0.3.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     json (2.6.3)
     loofah (2.19.1)
       crass (~> 1.0.2)
@@ -194,8 +185,6 @@ GEM
     rake (13.0.6)
     redis (4.8.0)
     regexp_parser (2.6.1)
-    reline (0.3.2)
-      io-console (~> 0.5)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -273,19 +262,18 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  debug
   devise
   devise-i18n
   devise_invitable
   enumerize
   importmap-rails
-  jbuilder
   pg (~> 1.1)
   pry-byebug
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails-i18n (~> 7.0.0)
+  redis (~> 4.0)
   rubocop-rails
   sidekiq
   sidekiq-failures (~> 1.0)
@@ -295,7 +283,6 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails
   turbo-rails
-  tzinfo-data
   view_component
   web-console
 

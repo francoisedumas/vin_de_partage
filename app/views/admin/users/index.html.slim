@@ -1,0 +1,7 @@
+- content_for(:title) { t(".title") }
+
+- content_for :actions do
+  .mt-4.flex-shrink-0.flex.md:mt-0.md:ml-4
+    = link_to t(".new"), new_maintenance_user_path, class: "btn btn-primary"
+
+= render TableComponent.new(model: User, columns: [:full_name, :email, :role_text, :edit_link], collection: @users)

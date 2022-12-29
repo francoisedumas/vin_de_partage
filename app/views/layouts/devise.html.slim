@@ -1,0 +1,22 @@
+doctype html
+html.h-full.bg-white
+  = render "layouts/head"
+  body.h-full
+    .min-h-full.flex
+      .flex-1.flex.flex-col.justify-center.py-12.px-4.sm:px-6.lg:flex-none.lg:px-20.xl:px-24
+        .mx-auto.w-full.max-w-sm.lg:w-96.relative
+          div
+            = image_tag "logo.svg", alt: "logo", class: "h-12 w-auto mb-8 lg:mb-16"
+            = yield
+
+          .absolute.w-full
+            - flash.each do |msg_type, message|
+              .rounded-md.p-4.mt-4 class=("bg-red-50" if msg_type == "alert")
+                .flex
+                  div
+                    i.fa-solid.fa-lg class=("fa-circle-xmark text-red-700" if msg_type == "alert")
+                  p.text-sm.font-medium.ml-3 class=("text-red-800" if msg_type == "alert")
+                    = message
+
+      .hidden.lg:block.relative.w-0.flex-1
+        = image_tag "login-image.webp", alt: "", class: "absolute inset-0 h-full w-full object-cover"

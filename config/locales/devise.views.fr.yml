@@ -1,0 +1,5 @@
+fr:
+  devise:
+    passwords:
+      new:
+        send_me_reset_password_instructions: Réinitialiser mon mot de passe

@@ -1,24 +1,43 @@
-# README
+# APP_NAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+- Ruby version: RUBY_VERSION
+- Rails version: Rails RAILS_VERSION
+- Install [Mailcatcher](https://mailcatcher.me/).
+- Basic knowledge about [Tailwind CSS](https://tailwindcss.com/docs) (it's the CSS framework on this app)
 
-* System dependencies
 
-* Configuration
+### Prepare
 
-* Database creation
+```
+gh repo clone CHANGE_THIS_TO_GITHUB_REPOSITROY
+cd APP_NAME
+bundle
+```
 
-* Database initialization
+### Credentials
 
-* How to run the test suite
+Ask for dev master key.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+echo CHANGE_THIS_WITH_GIVEN_MASTER_KEY > config/master.key
+```
 
-* Deployment instructions
+### Setup
 
-* ...
+```
+setup
+```
+
+### Serve
+
+```
+dev
+```
+
+### Backgroundjobs in production
+
+Sidekiq is available at path `/maintenance/sidekiq`

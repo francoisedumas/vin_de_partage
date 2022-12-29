@@ -1,0 +1,11 @@
+- content_for(:title) { t(".title") }
+
+= simple_form_for current_user, url: profile_path do |f|
+  = render FormComponent.new do |c|
+    .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
+      = f.input :first_name, placeholder: t("placeholders.first_name")
+      = f.input :last_name, placeholder: t("placeholders.last_name")
+    = f.input :email, disabled: true
+
+    - c.with_action do
+      = f.submit t("save"), class: "btn btn-primary"

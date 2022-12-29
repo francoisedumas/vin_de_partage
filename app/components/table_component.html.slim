@@ -1,0 +1,17 @@
+.mt-8.flex.flex-col
+  .-my-2.-mx-4.overflow-x-auto.sm:-mx-6.lg:-mx-8
+    .inline-block.min-w-full.py-2.align-middle.md:px-6.lg:px-8
+      .overflow-hidden.shadow.ring-1.ring-black.ring-opacity-5.md:rounded-lg
+        table.min-w-full.divide-y.divide-gray-300
+          thead.bg-gray-50
+            tr
+              - columns.each do |column|
+                th.py-3.5.pl-4.pr-3.text-left.text-sm.font-semibold.text-gray-900.first:sm:pl-6 scope="col"
+                  = model.human_attribute_name(column)
+
+          tbody.bg-white
+            - collection.each do |item|
+              tr.even:bg-gray-50
+                - columns.each do |column|
+                  td.whitespace-nowrap.py-4.pl-4.pr-3.text-sm.first:font-medium.text-gray-900.first:sm:pl-6
+                    = item.presented.public_send(column)

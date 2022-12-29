@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .btn {
+    @apply ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm;
+    @apply text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-primary-500;
+    @apply cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white border-primary-600;
+  }
+}

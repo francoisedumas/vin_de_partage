@@ -1,0 +1,7 @@
+- content_for(:title) { t(".title") }
+
+.rounded-lg.bg-gray-200.overflow-hidden.shadow.divide-y.divide-gray-200.sm:divide-y-0.sm:grid.sm:grid-cols-2.sm:gap-px
+  = render "maintenance/base/action",
+           title: "Users", link_path: maintenance_users_path, description: "Manage users", icon: "user-group"
+  = render "maintenance/base/action",
+           title: "Jobs", link_path: maintenance_jobs_path, description: "Manage background jobs", icon: "rectangle-terminal"

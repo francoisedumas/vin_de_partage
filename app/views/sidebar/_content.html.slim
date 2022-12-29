@@ -1,0 +1,15 @@
+.flex-1.pt-5.pb-4.overflow-y-auto class=(media == :mobile ? "h-0" : "flex flex-col")
+  .flex.items-center.flex-shrink-0.px-4
+    = image_tag "logo_light.svg", class: "h-8 w-auto", alt: "logo"
+  = render "sidebar/menu"
+.flex-shrink-0.flex.items-center.justify-between.border-t.border-gray-500.p-4
+  = link_to edit_profile_path, class: "flex-shrink-0 group block" do
+    .flex.items-center
+      div
+        = image_tag "profile.webp", class: "inline-block h-9 w-9 rounded-full", alt: "profile"
+      .ml-3
+        p.text-sm.font-medium.text-white = current_user.full_name
+        p.text-xs.font-medium.text-indigo-200.group-hover:text-white = t(".view_profile")
+
+  = button_to destroy_user_session_path, method: :delete do
+    i.fa-solid.fa-arrow-right-from-bracket.text-white

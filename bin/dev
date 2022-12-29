@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! command -v overmind &> /dev/null
+then
+  echo "You need to install overmind"
+fi
+
+overmind start -f Procfile.dev

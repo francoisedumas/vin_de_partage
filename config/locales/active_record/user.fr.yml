@@ -1,0 +1,12 @@
+fr:
+  activerecord:
+    models:
+      user: Utilisateur
+    attributes:
+      user:
+        edit_link: ""
+        email: Email
+        first_name: Prénom
+        full_name: Nom complet
+        last_name: Nom
+        role_text: Rôle
