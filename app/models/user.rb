@@ -3,6 +3,9 @@
 class User < ApplicationRecord
   extend Enumerize
 
+  # Associations
+  has_one_attached :photo
+
   ROLES = %i[maintainer admin default].freeze
 
   enumerize :role, in: ROLES, predicates: true
