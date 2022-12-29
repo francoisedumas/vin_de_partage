@@ -79,3 +79,4 @@ group :development, :test do
   gem "rubocop-rails", require: false
 end
 gem "slim-rails"
+gem "simple_form", github: "heartcombo/simple_form"
