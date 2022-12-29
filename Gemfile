@@ -80,3 +80,5 @@ group :development, :test do
 end
 gem "slim-rails"
 gem "simple_form", github: "heartcombo/simple_form"
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"
