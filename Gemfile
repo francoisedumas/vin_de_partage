@@ -78,3 +78,4 @@ end
 group :development, :test do
   gem "rubocop-rails", require: false
 end
+gem "slim-rails"

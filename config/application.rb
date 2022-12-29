@@ -27,7 +27,7 @@ module VinDePartage
     config.generators do |generate|
       generate.helper false
       # Uncomment to use slim
-      # generate.template_engine :slim
+      generate.template_engine :slim
       # Uncomment to use rspec
       # generate.test_framework :rspec
     end
