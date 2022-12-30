@@ -1,0 +1,18 @@
+.bg-white
+  .py-16.sm:py-24.xl:mx-auto.xl:max-w-7xl.xl:px-8
+    .px-4.sm:flex.sm:items-center.sm:justify-between.sm:px-6.lg:px-8.xl:px-0
+      h2.text-2xl.font-bold.tracking-tight.text-gray-900
+        = t(".last_wines")
+      = link_to bottles_path, class: "hidden text-sm font-semibold text-red-700 hover:text-red-500 sm:block" do
+        = t("see_more")
+        span[aria-hidden="true"]
+    .mt-4.flow-root
+      .-my-2
+        .relative.box-content.h-80.overflow-x-auto.py-2.xl:overflow-visible
+          .min-w-screen-xl.absolute.flex.space-x-8.px-4.sm:px-6.lg:px-8.xl:relative.xl:grid.xl:grid-cols-5.xl:gap-x-8.xl:space-x-0.xl:px-0
+            - @bottles.each do |bottle|
+              = render FeedCardComponent.new(instance: bottle, path: bottle_path(bottle))
+    .mt-6.px-4.sm:hidden
+      = link_to bottles_path, class: "block text-sm font-semibold text-red-700 hover:text-red-500" do
+        = t("see_more")
+        span[aria-hidden="true"]

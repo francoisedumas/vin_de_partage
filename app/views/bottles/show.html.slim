@@ -1,0 +1,40 @@
+.flex.justify-center.items-center
+  .flex.flex-col.justify-between.w-72.sm:w-96.h-96.bg-white.bg-center.text-gray-800.shadow-md.overflow-hidden style="background-image:url('https://images.unsplash.com/photo-1554230561-31bdc707b537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80')"
+    .flex.justify-between.items-center.ml-4.pr-8
+      .bg-red-600.text-white.bg-opacity-95.shadow.px-2.py-1.flex.items-center.font-bold.text-xs.rounded
+        = @bottle.appelation
+      .bg-red-600.w-10.h-12.shadow.flex.flex-col-reverse.p-2.text-center.font-bold.text-white.rounded-b-full
+        i.fa-regular.fa-bookmark
+    .bg-white.bg-opacity-95.shadow-md.rounded-r-xl.p-4.flex.flex-col.mr-4.mb-8
+      h3.text-xl.font-bold.pb-2
+        = @bottle.domaine_name
+      p.truncate.text-gray-500.text-sm
+        = "#{@bottle.color.capitalize} #{@bottle.year}"
+
+.overflow-hidden.bg-white.shadow.sm:rounded-lg
+  .px-4.py-5.sm:px-6
+    h3.text-lg.font-medium.leading-6.text-gray-900
+      | Information générale
+  .border-t.border-gray-200.px-4.py-5.sm:p-0
+    dl.sm:divide-y.sm:divide-gray-200
+
+    .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
+      dt.text-sm.font-medium.text-gray-500
+        | Géographie
+      dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
+        = "#{@bottle.country.capitalize} #{@bottle.region}"
+    .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
+      dt.text-sm.font-medium.text-gray-500
+        | Cépage
+      dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
+        | To come soon
+    .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
+      dt.text-sm.font-medium.text-gray-500
+        | Nom de la cuvée
+      dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
+        = @bottle.name? ? @bottle.name : "Absent"
+    .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
+      dt.text-sm.font-medium.text-gray-500
+        | Mis en ligne par:
+      dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
+        = @bottle.user.full_name

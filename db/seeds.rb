@@ -82,3 +82,15 @@ pouilly_fume = Bottle.create!(
 file = File.open(Rails.root.join('db/seeds/pouilly_fume.jpeg'))
 pouilly_fume.photo.attach(io: file, filename: "label.jpeg", content_type: "image/jpeg")
 pouilly_fume.save
+
+chinon = Bottle.create!(
+  name: '',
+  country: 'France',
+  region: 'Loire',
+  appelation: 'Chinon',
+  domaine_name: 'Château de Naie',
+  producer: 'Charles Pain',
+  color: 'rouge',
+  year: 2018,
+  user: francois
+)

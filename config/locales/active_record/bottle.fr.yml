@@ -1,0 +1,14 @@
+fr:
+  activerecord:
+    models:
+      bottle: Bouteille
+    attributes:
+      user:
+        name: Nom
+        country: Pays
+        domaine_name: Nom du domaine
+        producer: Nom du producteur
+        appelation: Appelation
+        region: Région
+        color: Couleur
+        year: Année
