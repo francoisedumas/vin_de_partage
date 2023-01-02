@@ -1,5 +1,6 @@
 .flex.justify-center.items-center
-  .flex.flex-col.justify-between.w-72.sm:w-96.h-96.bg-white.bg-center.text-gray-800.shadow-md.overflow-hidden style="background-image:url('https://images.unsplash.com/photo-1554230561-31bdc707b537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=480&q=80')"
+  - bg_image = @bottle.photo.attached? ? @bottle.photo.url : "default_wine.avif"
+  .flex.flex-col.justify-between.w-72.sm:w-96.h-96.bg-white.bg-center.bg-no-repeat.bg-contain.text-gray-800.shadow-md.overflow-hidden style="background-image:url('#{image_path bg_image}')"
     .flex.justify-between.items-center.ml-4.pr-8
       .bg-red-600.text-white.bg-opacity-95.shadow.px-2.py-1.flex.items-center.font-bold.text-xs.rounded
         = @bottle.appelation
