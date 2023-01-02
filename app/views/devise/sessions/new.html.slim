@@ -12,3 +12,9 @@ h2.mt-6.text-3xl.font-extrabold.text-gray-900 = t(".sign_in")
 
     div
       = f.button :submit, t(".sign_in"), class: "w-full justify-center"
+
+    .flex.items-center.justify-between
+      .text-sm
+        - if devise_mapping.registerable? && controller_name != 'registrations'
+          = link_to t("devise.shared.links.sign_up"), new_registration_path(resource_name),
+            class: "font-medium text-red-700 hover:text-red-500"
