@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:edit, :update], controller: :profile
     resource :feed, only: [:show], controller: :feed
 
-    authenticate :user, -> (user) { user.maintainer? } do
+    authenticate :user, -> (user) { user.admin? || user.maintainer? } do
       draw :maintenance
     end
 

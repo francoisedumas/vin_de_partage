@@ -2,7 +2,7 @@
 
 require "sidekiq/web"
 
-root to: "maintenance/base#index" , as: "maintainer_authenticated_root"
+root to: "maintenance/base#index", as: "maintainer_authenticated_root"
 
 namespace :maintenance do
   mount Sidekiq::Web => "/sidekiq"

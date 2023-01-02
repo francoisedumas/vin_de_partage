@@ -2,4 +2,5 @@ fr:
   feed:
     show:
       last_wines: Les derniers vins
+      news: Les nouveautés
       wine: Vin

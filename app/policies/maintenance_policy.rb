@@ -3,7 +3,7 @@
 class MaintenancePolicy < ApplicationPolicy
   class << self
     def role_can_access?
-      role.in? %i[maintainer]
+      role.in? %i[maintainer admin]
     end
   end
 end

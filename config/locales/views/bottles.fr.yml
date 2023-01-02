@@ -1,0 +1,8 @@
+fr:
+  bottles:
+    index:
+      feed: Feed
+      wines: Les vins
+    show:
+      feed: Feed
+      wines: Vins
