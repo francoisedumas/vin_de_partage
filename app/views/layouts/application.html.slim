@@ -19,6 +19,7 @@ html.h-full.bg-gray-100
             .flex.items-center.flex-shrink-0.px-4
               = link_to feed_path do
                 = image_tag "logo.png", class: "h-8 w-auto", alt: "logo"
+        = render "layouts/footer"
         main.flex-1.container.mx-auto
           .p-6
             - if @breadcrumb_items
