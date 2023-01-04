@@ -3,7 +3,7 @@ fr:
     models:
       bottle: Bouteille
     attributes:
-      user:
+      bottle:
         name: Nom
         country: Pays
         domaine_name: Nom du domaine

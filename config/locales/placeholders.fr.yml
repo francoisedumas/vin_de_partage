@@ -3,3 +3,11 @@ fr:
     email: alice.martin@example.com
     first_name: Alice
     last_name: Martin
+    name: Les chiens chiens
+    country: France
+    region: Loire
+    appelation: Chinon
+    domaine_name: Château de Naie
+    producer: Charles Pain
+    color: Rouge
+    year: 2000

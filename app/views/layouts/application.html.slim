@@ -21,7 +21,7 @@ html.h-full.bg-gray-100
                 = image_tag "logo.png", class: "h-8 w-auto", alt: "logo"
         = render "layouts/footer"
         main.flex-1.container.mx-auto
-          .p-6
+          .p-6.mb-8
             - if @breadcrumb_items
               = render BreadcrumbComponent.new(items: @breadcrumb_items, title: yield(:title))
             .md:flex.md:items-center.md:justify-between.mb-10.mt-4

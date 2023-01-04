@@ -10,7 +10,7 @@
       h3.text-xl.font-bold.pb-2
         = @bottle.domaine_name
       p.truncate.text-gray-500.text-sm
-        = "#{@bottle.color.capitalize} #{@bottle.year}"
+        = "#{@bottle.color&.capitalize} #{@bottle.year}"
 
 .overflow-hidden.bg-white.shadow.sm:rounded-lg
   .px-4.py-5.sm:px-6
@@ -23,7 +23,7 @@
       dt.text-sm.font-medium.text-gray-500
         | Géographie
       dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
-        = "#{@bottle.country.capitalize} #{@bottle.region}"
+        = "#{@bottle.country&.capitalize} #{@bottle.region}"
     .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
       dt.text-sm.font-medium.text-gray-500
         | Cépage

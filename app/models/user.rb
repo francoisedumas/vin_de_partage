@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   # Associations
   has_one_attached :photo
+  has_many :bottles
 
   ROLES = %i[maintainer admin default].freeze
 

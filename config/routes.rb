@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
 
   root "feed#show"
-  resources :bottles, only: %i[index show]
+  resources :bottles, only: %i[index show new create]
 end

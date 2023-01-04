@@ -6,3 +6,7 @@ fr:
     show:
       feed: Feed
       wines: Vins
+    new:
+      feed: Feed
+      new_wine: Nouveau vin
+      wines: Vins
