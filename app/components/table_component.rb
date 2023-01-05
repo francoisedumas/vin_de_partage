@@ -9,5 +9,4 @@ class TableComponent < ViewComponent::Base
     @columns = columns
     @collection = collection
   end
-
 end

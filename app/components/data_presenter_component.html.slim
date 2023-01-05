@@ -1,0 +1,17 @@
+.overflow-hidden.bg-white.shadow.sm:rounded-lg
+  .px-4.py-5.sm:px-6
+    h3.text-lg.font-medium.leading-6.text-gray-900
+      = @title
+  .border-t.border-gray-200.px-4.py-5.sm:p-0
+    dl.sm:divide-y.sm:divide-gray-200
+
+    - entries.each do | entry |
+      .py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.sm:px-6
+        dt.text-sm.font-medium.text-gray-500
+          = entry.label
+        dd.mt-1.text-sm.text-gray-900.sm:col-span-2.sm:mt-0
+          - if entry.pill
+            span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-#{entry.color}-50 text-#{entry.color}-800"
+              = entry.value
+          - else
+            = entry.value
