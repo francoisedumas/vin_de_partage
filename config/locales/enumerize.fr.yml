@@ -1,0 +1,8 @@
+fr:
+  enumerize:
+    bottle:
+      color:
+        pink: Rosé
+        red: Rouge
+        yellow: Jaune
+        white: Blanc

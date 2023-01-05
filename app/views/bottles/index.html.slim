@@ -2,7 +2,7 @@
   = t(".wines")
 .bg-white
   .mx-auto.max-w-2xl.py-16.px-4.sm:py-24.sm:px-6.lg:max-w-7xl.lg:px-8
-    h2.sr-only Les vins
+    h2.sr-only = t(".wines")
     .grid.grid-cols-1.gap-y-4.sm:grid-cols-2.sm:gap-x-6.sm:gap-y-10.lg:grid-cols-3.lg:gap-x-8
       - @bottles.each do |bottle|
         .flex.justify-center.p-2

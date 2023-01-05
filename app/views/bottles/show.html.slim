@@ -21,5 +21,5 @@
     = @bottle.name
   = data.entry "Mis en ligne par" do
     = @bottle.user.full_name
-  = data.entry "Couleur", pill: true do
-    = @bottle.color
+  = data.entry "Couleur", pill: true, color: @bottle.color do
+    = t("enumerize.bottle.color.#{@bottle.color}")

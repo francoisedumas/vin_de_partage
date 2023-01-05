@@ -26,7 +26,7 @@ menetou_salon = Bottle.create!(
   appelation: 'Menetou-Salon',
   domaine_name: 'Cellier du Monastère',
   producer: 'Chavet',
-  color: 'blanc',
+  color: 'white',
   year: 2018,
   user: francois
 )
@@ -42,7 +42,7 @@ sancerre = Bottle.create!(
   appelation: 'Sancerre',
   domaine_name: 'Jérôme Godon',
   producer: 'Jérôme Godon',
-  color: 'blanc',
+  color: 'white',
   year: 2021,
   user: francois
 )
@@ -58,7 +58,7 @@ quincy = Bottle.create!(
   appelation: 'Quincy',
   domaine_name: 'Jacques Rouzé',
   producer: 'Jacques Rouzé',
-  color: 'blanc',
+  color: 'white',
   year: 2018,
   user: francois
 )
@@ -74,7 +74,7 @@ pouilly_fume = Bottle.create!(
   appelation: 'Pouilly-Fumé',
   domaine_name: 'Bel Air',
   producer: 'Mauroy Gauliez',
-  color: 'blanc',
+  color: 'white',
   year: 2015,
   user: francois
 )
@@ -90,7 +90,7 @@ chinon = Bottle.create!(
   appelation: 'Chinon',
   domaine_name: 'Château de Naie',
   producer: 'Charles Pain',
-  color: 'rouge',
+  color: 'red',
   year: 2018,
   user: francois
 )

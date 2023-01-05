@@ -1,5 +1,8 @@
 fr:
   menu:
+    add: Ajouter
     admin: Admin
     maintenance: Maintenance
+    producers: Producteurs
     users: Utilisateurs
+    wines: Vins

@@ -22,6 +22,10 @@ class DataPresenterComponent < ViewComponent::Base
       content.presence || "Absent"
     end
 
+    def tag_color
+      @color == "white" ? "gray" : @color
+    end
+
     def call
       content
     end

@@ -46,7 +46,7 @@ class Bottle < ApplicationRecord
     Sud-Ouest
   ].freeze
 
-  COLORS = %i[Rouge Blanc Rosé].freeze
+  COLORS = %i[pink red yellow white].freeze
 
   enumerize :region, in: REGIONS, predicates: true
   enumerize :color, in: COLORS, predicates: true
