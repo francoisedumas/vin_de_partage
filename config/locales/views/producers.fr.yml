@@ -1,0 +1,12 @@
+fr:
+  bottles:
+    index:
+      feed: Feed
+      wines: Les producteurs
+    show:
+      feed: Feed
+      wines: Producteurs
+    new:
+      feed: Feed
+      new_wine: Nouveau producteur
+      wines: Producteurs

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     unauthenticated { root to: "devise/sessions#new", as: :unauthenticated_root }
 
     resource :profile, only: [:edit, :update], controller: :profile
-    resource :feed, only: [:show], controller: :feed
 
     authenticate :user, -> (user) { user.admin? || user.maintainer? } do
       draw :maintenance
@@ -18,5 +17,7 @@ Rails.application.routes.draw do
   end
 
   root "feed#show"
+  resource :feed, only: [:show], controller: :feed
   resources :bottles, only: %i[index show new create]
+  resources :producers, only: %i[index show new create]
 end

@@ -7,16 +7,25 @@ ruby "3.1.2"
 
 gem "bootsnap", require: false
 gem "cloudinary"
+gem "devise_invitable"
+gem "devise-i18n"
+gem "devise"
+gem "geocoder"
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "redis", "~> 4.0"
+gem "sidekiq-failures", "~> 1.0"
+gem "sidekiq"
+gem "simple_form", github: "heartcombo/simple_form"
+gem "slim-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "turbo-rails"
+gem "view_component"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -34,12 +43,3 @@ end
 group :development, :test do
   gem "rubocop-rails", require: false
 end
-
-gem "slim-rails"
-gem "simple_form", github: "heartcombo/simple_form"
-gem "sidekiq"
-gem "sidekiq-failures", "~> 1.0"
-gem "devise"
-gem "devise-i18n"
-gem "devise_invitable"
-gem "view_component"

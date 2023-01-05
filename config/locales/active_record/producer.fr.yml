@@ -1,0 +1,10 @@
+fr:
+  activerecord:
+    models:
+      producer: Producteur
+    attributes:
+      producer:
+        address: Adresse
+        domaine_name: Nom du domaine
+        name: Nom du producteur
+        region: Région

@@ -1,6 +1,7 @@
 puts "Destroying existing seeds"
 
 Bottle.destroy_all
+Producer.destroy_all
 User.destroy_all
 
 puts "Creating users..."
@@ -22,7 +23,7 @@ puts "Creating bottles..."
 menetou_salon = Bottle.create!(
   name: '',
   country: 'France',
-  region: 'Loire',
+  region: 'loire',
   appelation: 'Menetou-Salon',
   domaine_name: 'Cellier du Monastère',
   producer: 'Chavet',
@@ -38,7 +39,7 @@ menetou_salon.save
 sancerre = Bottle.create!(
   name:'',
   country: 'France',
-  region: 'Loire',
+  region: 'loire',
   appelation: 'Sancerre',
   domaine_name: 'Jérôme Godon',
   producer: 'Jérôme Godon',
@@ -54,7 +55,7 @@ sancerre.save
 quincy = Bottle.create!(
   name: '',
   country: 'France',
-  region: 'Loire',
+  region: 'loire',
   appelation: 'Quincy',
   domaine_name: 'Jacques Rouzé',
   producer: 'Jacques Rouzé',
@@ -70,7 +71,7 @@ quincy.save
 pouilly_fume = Bottle.create!(
   name: 'Cuvée des Acoins',
   country: 'France',
-  region: 'Loire',
+  region: 'loire',
   appelation: 'Pouilly-Fumé',
   domaine_name: 'Bel Air',
   producer: 'Mauroy Gauliez',
@@ -86,11 +87,20 @@ pouilly_fume.save
 chinon = Bottle.create!(
   name: '',
   country: 'France',
-  region: 'Loire',
+  region: 'loire',
   appelation: 'Chinon',
   domaine_name: 'Château de Naie',
   producer: 'Charles Pain',
   color: 'red',
   year: 2018,
   user: francois
+)
+
+puts "Creating producers..."
+
+charles_pain = Producer.create(
+  name: 'Charles Pain',
+  domaine_name: 'Château de Naie',
+  region: 'loire',
+  address: '12 Rue de Chezelet, 37220 Panzoult'
 )

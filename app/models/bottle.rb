@@ -32,18 +32,18 @@ class Bottle < ApplicationRecord
   ].freeze
 
   REGIONS = %i[
-    Alsace-Lorraine
-    Beaujolais
-    Bordeaux
-    Bourgogne
-    Champagne
-    Corse
-    Jura-Bugey-Savoie
-    Languedoc-Roussillon
-    Loire
-    Provence
-    Rhône
-    Sud-Ouest
+    alsace_lorraine
+    beaujolais
+    bordeaux
+    bourgogne
+    champagne
+    corse
+    jura_bugey_savoie
+    languedoc_roussillon
+    loire
+    provence
+    rhone
+    sud_ouest
   ].freeze
 
   COLORS = %i[pink red yellow white].freeze

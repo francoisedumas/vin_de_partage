@@ -1,0 +1,16 @@
+fr:
+  enumerize:
+    producer:
+      region:
+        alsace_lorraine: Alsace Lorraine
+        beaujolais: Beaujolais
+        bordeaux: Bordeaux
+        bourgogne: Bourgogne
+        champagne: Champagne
+        corse: Corse
+        jura_bugey_savoie: Jura Bugey Savoie
+        languedoc_roussillon: Languedoc Roussillon
+        loire: Loire
+        provence: Provence
+        rhone: Rhône
+        sud_ouest: Sud Ouest
