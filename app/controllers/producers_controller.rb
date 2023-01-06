@@ -26,7 +26,7 @@ class ProducersController < ApplicationController
 
   def new
     @breadcrumb_items = {
-      "producers.show.feed": feed_path,
+      "producers.show.feed": feed_path
     }
     @producer = producer.new
   end
@@ -46,20 +46,15 @@ class ProducersController < ApplicationController
   private
 
   def set_producer
-    @producer = producer.find(params[:id])
+    @producer = Producer.find(params[:id])
   end
 
   def producer_params
     params.require(:producer).permit(
-      :name,
-      :country,
+      :address,
       :domaine_name,
-      :producer,
-      :appelation,
-      :region,
-      :color,
-      :year,
-      :photo
+      :name,
+      :region
     )
   end
 end
