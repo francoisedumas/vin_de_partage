@@ -1,0 +1,5 @@
+- if @name
+  .text-xs.p-2.font-bold.w-max.truncate.flex.rounded-sm.shrink-0 title=@name class="bg-#{@bg_color} text-#{@text_color}"
+    - if @type
+      = image_tag image_url
+    div class="uppercase tracking-widest #{icon_css}" = @name

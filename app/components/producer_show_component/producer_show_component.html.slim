@@ -1,0 +1,29 @@
+.lg:static.inset-0.z-5.w-full.h-full data-map-target="producerClose" class=("#{@only_static_position ? 'static' : 'absolute'}")
+  .relative.flex.flex-col.overflow-x-hidden.overflow-y-auto.w-full.h-full
+    - if @producer
+      .absolute.top-3.right-3.lg:hidden class=("#{'hidden' if @only_static_position}")
+        i.shrink-0.fa-solid.fa-xmark.text-white.text-2xl.cursor-pointer data-action="click->map#closeShow"
+      div.overflow-hidden.p-4.md:p-6.flex.flex-col.bg-cover.bg-center.shrink-0 style='background-image: linear-gradient(180deg, rgba(0,0,0,0.6264706566220238) 0%, rgba(0,0,0,0.6404762588629201) 18%, rgba(255,255,255,0) 100%), url("#{image_path producer_image}");'
+        h2.grow.text-white.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden title=("#{@producer.domaine_name}") = @producer.domaine_name
+        .mb-4.md:mb-6
+          .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0.mb-3
+            = render(LabelComponent::LabelComponent.new(name: "Vin rouge", color: "red"))
+            = render(LabelComponent::LabelComponent.new(name: "Vin blanc", color: "white"))
+          .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0
+            = render(LabelComponent::LabelComponent.new(name: "Vigneron independant", type: "label"))
+            = render(LabelComponent::LabelComponent.new(name: "Loire", type: "place"))
+
+      div.w-full.p-4.md:p-6.bg-gray-100.flex.flex-col.justify-between.grow
+        .flex.flex-col-reverse.md:flex-row.lg:flex-col-reverse.xl:flex-row.justify-between.grow
+          .flex.flex-col.justify-between.grow
+            p.w-full.inline-block.md:pr-10.text-sm.mb-3
+              | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+            .flex
+              = link_to "Voir le site du vigneron", "#", target: "_blank", class: "btn btn-primary py-2 px-3"
+
+          .flex.flex-wrap.md:flex-col.lg:flex-row.xl:flex-col.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
+              = render(TagComponent::TagComponent.new(name: "lorem"))
+    - else
+      div.w-full.p-4.md:p-6.bg-light-gray.flex.items-center.justify-center.grow
+        h2.grow.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden
+          | Pas de vigneron 😢
