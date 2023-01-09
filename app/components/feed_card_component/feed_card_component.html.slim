@@ -2,7 +2,7 @@
   span.absolute.inset-0[aria-hidden="true"]
     - if @instance.respond_to?(:photo) && @instance.photo.attached?
       = cl_image_tag @instance.photo.key, class: "h-full w-full object-cover object-center", alt: "Bouteille de vin"
-    - if @instance.respond_to?(:cover)
+    - elsif @instance.respond_to?(:cover)
       = image_tag @instance.cover, class: "h-full w-full object-cover object-center", alt: "Vigne de la région"
     - else
       = image_tag "default_wine.avif", alt: "bouteille de vin", class: "h-full w-full object-cover object-center"

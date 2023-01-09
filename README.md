@@ -1,4 +1,4 @@
-# APP_NAME
+# VIN DE PARTAGE
 
 ## Setup
 
