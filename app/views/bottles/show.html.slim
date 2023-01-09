@@ -12,7 +12,7 @@
       p.truncate.text-gray-500.text-sm
         = "#{@bottle.color&.capitalize} #{@bottle.year}"
 
-= render DataPresenterComponent.new("Information générale") do | data |
+= render DataPresenterComponent::DataPresenterComponent.new("Information générale") do | data |
   = data.entry "Géographie" do
     = "#{@bottle.country&.capitalize} #{@bottle.region}"
   = data.entry "Cépage" do

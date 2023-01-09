@@ -23,7 +23,7 @@ html.h-full.bg-gray-100
         main.flex-1.container.mx-auto
           .p-6.mb-8
             - if @breadcrumb_items
-              = render BreadcrumbComponent.new(items: @breadcrumb_items, title: yield(:title))
+              = render BreadcrumbComponent::BreadcrumbComponent.new(items: @breadcrumb_items, title: yield(:title))
             .md:flex.md:items-center.md:justify-between.mb-10.mt-4
               .flex-1.min-w-0
                 h2.text-2xl.font-bold.leading-7.text-gray-900.sm:text-3xl.sm:truncate
