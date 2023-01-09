@@ -1,14 +1,35 @@
 head
-  title Vin de famille
+  title = meta_title
+  meta name="description" content="<%= meta_description %>"
   meta name="viewport" content="width=device-width,initial-scale=1"
   = csrf_meta_tags
   = csp_meta_tag
-  / = favicon_link_tag "favicon.png", type: "image/png"
+  = render "layouts/favicon"
+
   = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
 
   = stylesheet_link_tag "application", "data-turbo-track": "reload"
   = javascript_importmap_tags
+
+  / Fontawesome
   script src=Rails.application.credentials.fontawesome_url crossorigin="anonymous"
+
   / Mapbox
   link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet"
   script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"
+
+  / <!-- Facebook Open Graph data -->
+  meta property="og:title" content="<%= meta_title %>"
+  meta property="og:type" content="website"
+  meta property="og:url" content="<%= request.original_url %>"
+  meta property="og:image" content="<%= meta_image %>"
+  meta property="og:description" content="<%= meta_description %>"
+  meta property="og:site_name" content="<%= meta_title %>"
+
+  / <!-- Twitter Card data -->
+  meta name="twitter:card" content="summary_large_image"
+  / meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>"
+  meta name="twitter:title" content="<%= meta_title %>"
+  meta name="twitter:description" content="<%= meta_description %>"
+  / meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>"
+  meta name="twitter:image:src" content="<%= meta_image %>"
