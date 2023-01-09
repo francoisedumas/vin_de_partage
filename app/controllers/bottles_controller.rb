@@ -19,7 +19,7 @@ class BottlesController < ApplicationController
 
   def new
     @breadcrumb_items = {
-      "bottles.show.feed": feed_path,
+      "bottles.show.feed": feed_path
     }
     @bottle = Bottle.new
   end

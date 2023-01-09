@@ -2,13 +2,10 @@
 
 module TagComponent
   class TagComponent < ViewComponent::Base
-    def initialize(name:)
+    def initialize(name:, icon:)
       super
       @name = name
-    end
-
-    def picto
-      Producer.co_benefit_icon(@name)
+      @icon = icon
     end
   end
 end

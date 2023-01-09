@@ -14,4 +14,8 @@
   .btn-primary {
     @apply bg-primary-600 hover:bg-primary-700 text-white border-primary-600;
   }
+
+  .mapboxgl-ctrl-logo, .mapboxgl-ctrl-attrib {
+    display: none !important;
+  }
 }

@@ -1,7 +1,10 @@
 fr:
   activerecord:
     models:
-      producer: Producteur
+      producer:
+        zero: 0 producteur recensé
+        one: 1 producteur recensé
+        other: "%{count} producteurs recensés"
     attributes:
       producer:
         address: Adresse

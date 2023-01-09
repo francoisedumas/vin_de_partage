@@ -5,12 +5,13 @@ class ProducersController < ApplicationController
 
   def index
     @breadcrumb_items = {
-      "producers.show.feed": feed_path
+      "producers.index.feed": feed_path
     }
     @producers = Producer.all
 
     @markers = @producers.geocoded.map do |producer|
       {
+        id: producer.id,
         lat: producer.latitude,
         lng: producer.longitude
       }

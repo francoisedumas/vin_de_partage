@@ -10,8 +10,8 @@
             = render(LabelComponent::LabelComponent.new(name: "Vin rouge", color: "red"))
             = render(LabelComponent::LabelComponent.new(name: "Vin blanc", color: "white"))
           .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0
-            = render(LabelComponent::LabelComponent.new(name: "Vigneron independant", type: "label"))
-            = render(LabelComponent::LabelComponent.new(name: "Loire", type: "place"))
+            = render(LabelComponent::LabelComponent.new(name: "Vigneron independant", type: "tag"))
+            = render(LabelComponent::LabelComponent.new(name: "Loire", type: "location-dot"))
 
       div.w-full.p-4.md:p-6.bg-gray-100.flex.flex-col.justify-between.grow
         .flex.flex-col-reverse.md:flex-row.lg:flex-col-reverse.xl:flex-row.justify-between.grow
@@ -22,7 +22,7 @@
               = link_to "Voir le site du vigneron", "#", target: "_blank", class: "btn btn-primary py-2 px-3"
 
           .flex.flex-wrap.md:flex-col.lg:flex-row.xl:flex-col.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
-              = render(TagComponent::TagComponent.new(name: "lorem"))
+              = render(TagComponent::TagComponent.new(name: "lorem", icon: "fa-house"))
     - else
       div.w-full.p-4.md:p-6.bg-light-gray.flex.items-center.justify-center.grow
         h2.grow.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden

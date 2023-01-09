@@ -1,12 +1,12 @@
 fr:
-  bottles:
+  producers:
     index:
       feed: Feed
-      wines: Les producteurs
+      producers: Les producteurs
     show:
       feed: Feed
-      wines: Producteurs
+      producers: Producteurs
     new:
       feed: Feed
       new_wine: Nouveau producteur
-      wines: Producteurs
+      producers: Producteurs

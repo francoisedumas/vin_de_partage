@@ -35,8 +35,43 @@ class Producer < ApplicationRecord
     sud_ouest
   ].freeze
 
+  CO_BENEFIT_ICONS = {
+    acces_a_l_eau: "water",
+    acces_a_l_education: "education",
+    acces_a_une_energie_propre: "sun",
+    adaptation_changements_climatique: "thunder",
+    biodiversite: "biodiversity",
+    circuits_courts: "leaves",
+    consomation_et_production_responsables: "soil_leaves",
+    default: "leaves",
+    depollution_des_eaux: "water",
+    depollution_des_sols: "leaves",
+    developpement_social: "person",
+    education_de_qualite: "education",
+    emploi_local: "job",
+    egalite_hommes_femmes: "equality",
+    lutte_contre_la_pauvrete: "person",
+    protection_des_sols: "leaves",
+    protection_des_cours_d_eau: "water",
+    protection_animale: "animal",
+    qualite_de_l_air: "air",
+    qualite_de_vie: "person",
+    qualite_de_l_eaux: "water",
+    reduction_de_la_faim: "famine_reduction",
+    sante_humaine: "person",
+    securite_alimentaire: "food_access_security",
+    reduction_de_la_consommation_d_energie: "power",
+    preservation_d_ecosysteme_naturel: "biodiversity",
+    qualite_de_la_terre: "leaves",
+    territoire_durable: "land",
+  }.freeze
+
   after_create do
     cover = PHOTO[region.to_sym] || PHOTO[:default]
     update(cover:)
+  end
+
+  def self.co_benefit_icon(name)
+    CO_BENEFIT_ICONS[name.parameterize(separator: "_").to_sym] || :default
   end
 end

@@ -104,3 +104,10 @@ charles_pain = Producer.create(
   region: 'loire',
   address: '12 Rue de Chezelet, 37220 Panzoult'
 )
+
+cognettes = Producer.create(
+  name: 'Stéphane et Vincent Perraud',
+  domaine_name: 'Domaine des Cognettes',
+  region: 'loire',
+  address: '25 route de Saint-Crespin, 44190 Clisson'
+)

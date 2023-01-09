@@ -1,7 +1,10 @@
 fr:
   activerecord:
     models:
-      bottle: Bouteille
+      bottle:
+        zero: 0 vin recensé
+        one: 1 vin recensé
+        other: "%{count} vins recensés"
     attributes:
       bottle:
         name: Nom
