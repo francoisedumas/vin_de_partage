@@ -1,6 +1,7 @@
 fr:
   feed:
     show:
+      last_producers: Les derniers producteurs
       last_wines: Les derniers vins
       news: Les nouveautés
       wine: Vin
