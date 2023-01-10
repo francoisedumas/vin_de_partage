@@ -16,7 +16,7 @@ gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
-gem "redis", "~> 4.0"
+gem 'redis', '~> 5.0', '>= 5.0.5'
 gem "sidekiq-failures", "~> 1.0"
 gem "sidekiq"
 gem "simple_form", github: "heartcombo/simple_form"
