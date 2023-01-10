@@ -19,7 +19,10 @@
             p.w-full.inline-block.md:pr-10.text-sm.mb-3
               | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
             .flex
-              = link_to "Voir le site du vigneron", "#", target: "_blank", class: "btn btn-primary py-2 px-3"
+              - if @producer.website?
+                = link_to "Voir le site du vigneron", "#{@producer.website}", target: "_blank", class: "btn btn-primary py-2 px-3"
+              - else
+                = link_to "Renseigner le site du vigneron", "#", target: "_blank", class: "btn btn-primary py-2 px-3"
 
           .flex.flex-wrap.md:flex-col.lg:flex-row.xl:flex-col.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
               = render(TagComponent::TagComponent.new(name: "lorem", icon: "fa-house"))

@@ -102,12 +102,25 @@ charles_pain = Producer.create(
   name: 'Charles Pain',
   domaine_name: 'Château de Naie',
   region: 'loire',
-  address: '12 Rue de Chezelet, 37220 Panzoult'
+  address: '12 Rue de Chezelet, 37220 Panzoult',
+  website: "https://charlespain.fr",
+  user: francois
 )
 
 cognettes = Producer.create(
   name: 'Stéphane et Vincent Perraud',
   domaine_name: 'Domaine des Cognettes',
   region: 'loire',
-  address: '25 route de Saint-Crespin, 44190 Clisson'
+  address: '25 route de Saint-Crespin, 44190 Clisson',
+  website: "https://www.domainedescognettes.fr",
+  user: francois
+)
+
+lebreton = Producer.create(
+  name: 'Jean-Yves Lebreton',
+  domaine_name: 'Domaine des Rochelles',
+  region: 'loire',
+  address: '12 chemin des Rochelles, 49320 ST Jean des Mauvrets',
+  website: "",
+  user: francois
 )
