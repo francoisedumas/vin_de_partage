@@ -41,3 +41,6 @@ dev
 ### Backgroundjobs in production
 
 Sidekiq is available at path `/maintenance/sidekiq`
+
+### Redis 6 setup
+[Heroku article](https://devcenter.heroku.com/articles/connecting-heroku-redis#connecting-in-ruby)
