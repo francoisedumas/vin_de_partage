@@ -1,7 +1,11 @@
 fr:
   menu:
     add: Ajouter
+    add_wine: Ajouter un vin
+    add_producer: Ajouter un producteur
     admin: Admin
+    explore: Explorer
+    home: Acceuil
     maintenance: Maintenance
     producers: Producteurs
     users: Utilisateurs

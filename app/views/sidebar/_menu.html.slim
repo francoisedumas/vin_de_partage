@@ -14,11 +14,15 @@ nav.mt-10.flex-1.px-2.space-y-1
     path: admin_users_path,
     policy: AdminPolicy.role_can_access?)
 
+  = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.home"),
+    icon: "fa-house",
+    path: feed_path)
+
   = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.wines"),
     icon: "fa-wine-bottle",
     path: bottles_path)
 
-  = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.add"),
+  = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.add_wine"),
     icon: "fa-circle-plus",
     path: new_bottle_path)
 
@@ -26,6 +30,6 @@ nav.mt-10.flex-1.px-2.space-y-1
     icon: "fa-grapes",
     path: producers_path)
 
-  = render MenuLinkComponent::MenuLinkComponent.new(title: "Reports",
-    icon: "fa-chart-column",
-    path: "#")
+  = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.add_producer"),
+    icon: "fa-circle-plus",
+    path: new_producer_path)

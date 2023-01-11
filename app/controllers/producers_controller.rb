@@ -29,7 +29,7 @@ class ProducersController < ApplicationController
     @breadcrumb_items = {
       "producers.show.feed": feed_path
     }
-    @producer = producer.new
+    @producer = Producer.new
   end
 
   def create
@@ -55,7 +55,8 @@ class ProducersController < ApplicationController
       :address,
       :domaine_name,
       :name,
-      :region
+      :region,
+      :website
     )
   end
 end

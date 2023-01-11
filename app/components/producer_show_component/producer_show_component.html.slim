@@ -11,7 +11,7 @@
             = render(LabelComponent::LabelComponent.new(name: "Vin blanc", color: "white"))
           .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0
             = render(LabelComponent::LabelComponent.new(name: "Vigneron independant", type: "tag"))
-            = render(LabelComponent::LabelComponent.new(name: "Loire", type: "location-dot"))
+            = render(LabelComponent::LabelComponent.new(name: @producer.region, type: "grapes"))
 
       div.w-full.p-4.md:p-6.bg-gray-100.flex.flex-col.justify-between.grow
         .flex.flex-col-reverse.md:flex-row.lg:flex-col-reverse.xl:flex-row.justify-between.grow

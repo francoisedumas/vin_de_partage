@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Producer < ApplicationRecord
+  extend Enumerize
+
   belongs_to :user
 
   geocoded_by :address
@@ -36,6 +38,8 @@ class Producer < ApplicationRecord
     rhone
     sud_ouest
   ].freeze
+
+  enumerize :region, in: REGIONS, predicates: true
 
   after_create do
     cover = PHOTO[region.to_sym] || PHOTO[:default]

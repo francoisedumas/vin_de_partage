@@ -1,14 +1,23 @@
 section#bottom-navigation.block.fixed.inset-x-0.bottom-0.z-10.bg-white.shadow.md:hidden
   #tabs.flex.justify-between
-    = link_to feed_path, class: "w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1" do
+    = link_to feed_path, class: "w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-2 pb-1" do
       i.fa-regular.fa-house.h-6.w-6
       span.tab.tab-home.block.text-xs
-        | Home
-    = link_to producers_path, class: "w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1" do
+        = t("menu.home")
+    = link_to producers_path, class: "w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-2 pb-1" do
       i.fa-regular.fa-map.h-6.w-6
       span.tab.tab-explore.block.text-xs
-        | Explore
-    = link_to new_bottle_path, class: "w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1" do
-      i.fa-regular.fa-circle-plus.h-6.w-6
-      span.tab.tab-explore.block.text-xs
-        | Ajouter
+        = t("menu.explore")
+    .relative.inline-flex.align-middle.w-full
+      button.w-full.focus:text-red-500.hover:text-red-500.justify-center.inline-block.text-center.pt-2.pb-1.ease-linear.transition-all.duration-150[type="button" onclick="openDropdown(event,'dropdown-id')"]
+        i.fa-regular.fa-circle-plus.h-6.w-6
+        span.tab.tab-explore.block.text-xs
+          = t("menu.add")
+      #dropdown-id.hidden.bg-white.text-base.z-50.float-left.py-2.list-none.text-left.rounded.shadow-lg.mb-1[style="min-width:12rem"]
+        = link_to new_bottle_path, class: "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent" do
+          = t("menu.add_wine")
+        = link_to new_producer_path, class: "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent" do
+          = t("menu.add_producer")
+script[src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"]
+script
+  |  function openDropdown(event,dropdownID){ let element = event.target; while(element.nodeName !== "BUTTON"){ element = element.parentNode; } var popper = Popper.createPopper(element, document.getElementById(dropdownID), { placement: 'top-end' }); document.getElementById(dropdownID).classList.toggle("hidden"); document.getElementById(dropdownID).classList.toggle("block"); }
