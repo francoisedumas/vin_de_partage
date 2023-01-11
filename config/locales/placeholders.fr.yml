@@ -1,6 +1,6 @@
 fr:
   placeholders:
-    address: Adresse
+    address: 10 rue du Fromage, 61120 Camembert
     email: alice.martin@example.com
     first_name: Alice
     last_name: Martin
