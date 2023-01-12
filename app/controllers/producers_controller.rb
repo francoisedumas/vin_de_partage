@@ -56,7 +56,9 @@ class ProducersController < ApplicationController
       :domaine_name,
       :name,
       :region,
-      :website
+      :website,
+      :latitude,
+      :longitude
     )
   end
 end

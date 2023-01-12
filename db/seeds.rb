@@ -106,6 +106,7 @@ charles_pain = Producer.create(
   website: "https://charlespain.fr",
   user: francois
 )
+charles_pain.geocode
 
 cognettes = Producer.create(
   name: 'Stéphane et Vincent Perraud',
@@ -115,6 +116,7 @@ cognettes = Producer.create(
   website: "https://www.domainedescognettes.fr",
   user: francois
 )
+charles_pain.geocode
 
 lebreton = Producer.create(
   name: 'Jean-Yves Lebreton',
@@ -124,3 +126,4 @@ lebreton = Producer.create(
   website: "",
   user: francois
 )
+charles_pain.geocode

@@ -5,16 +5,18 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = { apiKey: String }
 
-  static targets = ["address"]
+  static targets = ["address", "latitude", "longitude", "search"]
 
   connect() {
-    console.log(this.apiKeyValue)
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
-    this.geocoder.addTo(this.element)
-    this.geocoder.on("result", event => this.#setInputValue(event))
+    this.geocoder.addTo(this.searchTarget)
+    this.geocoder.on("result", event => {
+      this.#setInputValue(event);
+      this.#setLongitudeLatitudeValue(event);
+    })
     this.geocoder.on("clear", () => this.#clearInputValue())
   }
 
@@ -23,10 +25,15 @@ export default class extends Controller {
   }
 
   #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
+    this.addressTarget.value = event.result["place_name"];
+  }
+
+  #setLongitudeLatitudeValue(event) {
+    this.longitudeTarget.value = event.result["center"][0];
+    this.latitudeTarget.value = event.result["center"][1];
   }
 
   #clearInputValue() {
-    this.addressTarget.value = ""
+    this.addressTarget.value = "";
   }
 }

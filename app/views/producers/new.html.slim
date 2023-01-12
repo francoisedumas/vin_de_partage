@@ -1,12 +1,15 @@
 - content_for :title do
   = t(".new_producer")
 
-= simple_form_for @producer, url: producers_path do |f|
+= simple_form_for @producer, url: producers_path, data: {controller: "address-autocomplete", address_autocomplete_api_key_value: Rails.application.credentials.mapbox.public_key} do |f|
   = render FormComponent::FormComponent.new do |c|
+    = f.hidden_field :latitude, data: { address_autocomplete_target: "latitude" }
+    = f.hidden_field :longitude, data: { address_autocomplete_target: "longitude" }
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
-      = f.input :address, placeholder: t("placeholders.address"),
-          input_html: {data: {address_autocomplete_target: "address"}, class: "hidden"},
-          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: Rails.application.credentials.mapbox.public_key}}
+      div
+        = f.hidden_field :address, placeholder: t("placeholders.address"), data: { address_autocomplete_target: "address" }
+        = f.label t(".address"), class:"block text-sm font-medium text-gray-700 mb1"
+        .w-full data={"address-autocomplete-target": "search"}
       = f.input :region, placeholder: t("placeholders.region")
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :domaine_name, placeholder: t("placeholders.domaine_name")

@@ -8,5 +8,6 @@ fr:
       producers: Producteurs
     new:
       feed: Feed
+      address: Adresse
       new_producer: Nouveau producteur
       producers: Producteurs
