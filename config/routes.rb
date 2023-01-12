@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
-    unauthenticated { root to: "devise/sessions#new", as: :unauthenticated_root }
+    unauthenticated { root to: "showcase_site#landing", as: :unauthenticated_root }
+    # unauthenticated { root to: "devise/sessions#new", as: :unauthenticated_root }
 
     resource :profile, only: [:edit, :update], controller: :profile
 
@@ -14,10 +15,12 @@ Rails.application.routes.draw do
     authenticate :user, -> (user) { user.admin? || user.maintainer? } do
       draw :admin
     end
+
+    root "feed#show"
+    resource :feed, only: [:show], controller: :feed
+    resources :bottles, only: %i[index show new create]
+    resources :producers, only: %i[index show new create]
   end
 
-  root "feed#show"
-  resource :feed, only: [:show], controller: :feed
-  resources :bottles, only: %i[index show new create]
-  resources :producers, only: %i[index show new create]
+  get "landing", to: "showcase_site#landing"
 end

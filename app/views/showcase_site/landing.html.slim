@@ -1,0 +1,68 @@
+.bg-white
+  main
+    .relative
+      .absolute.inset-x-0.bottom-0.h-1/2.bg-gray-100
+      .mx-auto.max-w-7xl.sm:px-6.lg:px-8
+        .relative.shadow-xl.sm:overflow-hidden.sm:rounded-2xl
+          .absolute.inset-0
+            img.h-full.w-full.object-cover[src="https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="People working on laptops"]
+            .absolute.inset-0.bg-gradient-to-r.from-red-800.to-white-700.mix-blend-multiply
+          .relative.py-16.px-6.sm:py-24.lg:py-32.lg:px-8
+            h1.text-center.text-4xl.font-bold.tracking-tight.sm:text-5xl.lg:text-6xl
+              span.block.text-white
+                | Partager vos adresses
+              span.block.text-red-200
+                | de bon vins!
+            p.mx-auto.mt-6.max-w-lg.text-center.text-xl.text-red-200.sm:max-w-3xl
+              | Vous appelez toujours vos ami(e)s pour avoir leurs bonnes adresses de vignerons! Maintenant partagez tout avec Vin de Copain.
+            .mx-auto.mt-10.max-w-sm.sm:flex.sm:max-w-none.sm:justify-center
+              .space-y-4.sm:mx-auto.sm:inline-grid.sm:grid-cols-2.sm:gap-5.sm:space-y-0
+                = link_to new_user_registration_path, class:"flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-red-700 shadow-sm hover:bg-red-50 sm:px-8" do
+                  | Inscrivez-vous
+                = link_to new_user_session_path, class:"flex items-center justify-center rounded-md border border-transparent bg-red-500 bg-opacity-60 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-opacity-70 sm:px-8" do
+                  | Connectez-vous
+
+    .bg-gray-100
+      .mx-auto.max-w-7xl.py-16.px-6.lg:px-8
+        p.text-center.text-base.font-semibold.text-gray-500
+          | Découvrez des vins autrement.
+        .mt-6.grid.grid-cols-2.gap-8.md:grid-cols-6.lg:grid-cols-5
+          .col-span-1.flex.justify-center.md:col-span-2.lg:col-span-1
+            = image_tag "label/logo_hve.png", alt: "haute valeur environnementale", class: "h-12"
+          .col-span-1.flex.justify-center.md:col-span-2.lg:col-span-1
+            = image_tag "label/logo-caves-touristiques.jpeg", alt: "caves touristiques val de loire", class: "h-12"
+          .col-span-1.flex.justify-center.md:col-span-2.lg:col-span-1
+            = image_tag "label/vigneron_independant.png", alt: "bouteille de vin", class: "h-12"
+          .col-span-1.flex.justify-center.md:col-span-2.md:col-start-2.lg:col-span-1
+            = image_tag "label/logo_terra_vitis_nouveau.jpeg", alt: "bouteille de vin", class: "h-12"
+          .col-span-2.flex.justify-center.md:col-span-2.md:col-start-4.lg:col-span-1
+            = image_tag "label/vignobles-decouvertes.png", alt: "bouteille de vin", class: "h-12"
+    .relative.bg-gray-900
+      .bg-gradient-to-r.from-amber-500.to-red-600.pb-16.lg:relative.lg:z-10.lg:pb-0
+        .lg:mx-auto.lg:grid.lg:max-w-7xl.lg:grid-cols-3.lg:gap-8.lg:px-8
+          .relative.lg:-my-8
+            .absolute.inset-x-0.top-0.h-1/2.bg-white.lg:hidden[aria-hidden="true"]
+            .mx-auto.max-w-md.px-6.sm:max-w-3xl.lg:h-full.lg:p-0
+              .aspect-w-10.aspect-h-6.overflow-hidden.rounded-xl.shadow-xl.sm:aspect-w-16.sm:aspect-h-7.lg:aspect-none.lg:h-full
+                img.object-cover.lg:h-full.lg:w-full[src="https://images.unsplash.com/photo-1519671619280-fd2b53b38ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt=""]
+          .mt-12.lg:col-span-2.lg:m-0.lg:pl-8
+            .mx-auto.max-w-md.px-6.sm:max-w-2xl.lg:max-w-none.lg:px-0.lg:py-20
+              blockquote
+                div
+                  svg.h-12.w-12.text-white.opacity-25[fill="currentColor" viewbox="0 0 32 32" aria-hidden="true"]
+                    path[d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"]
+                  p.mt-6.text-2xl.font-medium.text-white
+                    | Je peux enfin partager facilement mes adresses de vignerons avec mes amis.
+                footer.mt-6
+                  p.text-base.font-medium.text-white
+                    | Jeanne Rouge
+                  p.text-base.font-medium.text-red-100
+                    | Amatrice de vin
+
+    footer.bg-gray-50[aria-labelledby="footer-heading"]
+      h2#footer-heading.sr-only
+        | Footer
+      .mx-auto.max-w-md.px-6.pt-4.sm:max-w-7xl.lg:px-8.lg:pt-4
+        .py-8
+          p.text-base.text-gray-400.xl:text-center
+            = "© #{Date.today.year} Vin de Copain, Inc. All rights reserved."
