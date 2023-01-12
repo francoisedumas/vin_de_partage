@@ -7,8 +7,11 @@ AllCops:
   - "bin/**/*"
   - "db/**/*"
   - "tmp/**/*"
+  - "test/**/*"
+  - "spec/**/*"
   - "vendor/**/*"
   - "config/environments/*"
+  - "config/initializers/simple_form_tailwind.rb"
 
 Bundler/OrderedGems:
   Enabled: false
@@ -23,7 +26,6 @@ Layout/SpaceInLambdaLiteral:
 Metrics/AbcSize:
   CountRepeatedAttributes: false
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
   CountAsOne: ['array', 'hash', 'heredoc']
 Metrics/ClassLength:
   CountAsOne: ['array', 'hash', 'heredoc']

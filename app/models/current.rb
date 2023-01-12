@@ -4,7 +4,6 @@ class Current < ActiveSupport::CurrentAttributes
   attribute :user
 
   def role
-    user&.role.to_sym
+    user&.role&.to_sym
   end
 end
-

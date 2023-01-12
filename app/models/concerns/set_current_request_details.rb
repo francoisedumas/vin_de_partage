@@ -11,4 +11,3 @@ module SetCurrentRequestDetails
     after_action { Current.reset }
   end
 end
-
