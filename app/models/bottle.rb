@@ -28,7 +28,7 @@ class Bottle < ApplicationRecord
   #   Suisse
   # ].freeze
   COUNTRIES = %i[
-    France
+    france
   ].freeze
 
   REGIONS = %i[

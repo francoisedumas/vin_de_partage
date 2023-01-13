@@ -19,3 +19,5 @@ fr:
         provence: Provence
         rhone: Rhône
         sud_ouest: Sud Ouest
+      country:
+        france: France

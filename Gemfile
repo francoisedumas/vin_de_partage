@@ -36,10 +36,15 @@ gem "rails-i18n", "~> 7.0.0"
 gem "enumerize"
 
 group :development, :test do
+  gem "bullet"
   gem "pry-byebug"
   gem "pry-rails"
+  gem "rubocop-rails", require: false
 end
 
-group :development, :test do
-  gem "rubocop-rails", require: false
+group :test do
+  gem "factory_bot_rails"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
 end
