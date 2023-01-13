@@ -1,9 +1,18 @@
 - content_for :title do
   = t(".wines")
 .bg-white
-  .mx-auto.max-w-2xl.py-16.px-4.sm:py-24.sm:px-6.lg:max-w-7xl.lg:px-8
+  .mx-auto.max-w-2xl.py-8.px-4.sm:py-12.sm:px-6.lg:max-w-7xl.lg:px-8 data-controller="toggle" data-toggle-class-value="hidden"
     h2.sr-only = t(".wines")
+    = link_to "Tous les vins",
+          bottles_path,
+          class: "btn btn-primary flex justify-center mb-2 #{'hidden' if !@filter}",
+          data: { turbo_frame: "bottles", "toggle-target": "content", action: "click->toggle#toggle" }
+    = link_to "Mes vins",
+      bottles_path(search: "my_wines"),
+      class: "btn btn-primary flex justify-center mb-2 #{'hidden' if @filter}",
+      data: { turbo_frame: "bottles", "toggle-target": "content", action: "click->toggle#toggle" }
     .grid.grid-cols-1.gap-y-4.sm:grid-cols-2.sm:gap-x-6.sm:gap-y-10.lg:grid-cols-3.lg:gap-x-8
-      - @bottles.each do |bottle|
-        .flex.justify-center.p-2
-          = render FeedCardComponent::FeedCardComponent.new(instance: bottle, path: bottle_path(bottle))
+      = turbo_frame_tag "bottles" do
+        - @bottles.each do |bottle|
+          .flex.justify-center.p-2
+            = render FeedCardComponent::FeedCardComponent.new(instance: bottle, path: bottle_path(bottle))
