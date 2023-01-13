@@ -1,3 +1,4 @@
+- color = t("enumerize.bottle.color.#{@bottle.color}")
 .flex.justify-center.items-center
   - bg_image = @bottle.photo.attached? ? @bottle.photo.url : "default_wine.avif"
   .flex.flex-col.justify-between.w-72.sm:w-96.h-96.bg-white.bg-center.bg-no-repeat.bg-contain.text-gray-800.shadow-md.overflow-hidden style="background-image:url('#{image_path bg_image}')"
@@ -10,16 +11,16 @@
       h3.text-xl.font-bold.pb-2
         = @bottle.domaine_name
       p.truncate.text-gray-500.text-sm
-        = "#{@bottle.color&.capitalize} #{@bottle.year}"
+        = "#{color} #{@bottle.year}"
 
-= render DataPresenterComponent::DataPresenterComponent.new("Information générale") do | data |
+= render DataPresenterComponent::DataPresenterComponent.new(title: t(".info"), path: edit_bottle_path(@bottle), icon: "fa-pen-to-square") do | data |
   = data.entry "Géographie" do
-    = "#{@bottle.country&.capitalize} #{@bottle.region}"
-  = data.entry "Cépage" do
-    | To come soon
+    = "#{@bottle.country&.capitalize} #{t("enumerize.bottle.region.#{@bottle.region}")}"
+  = data.entry "Appelation" do
+    = @bottle.appelation
   = data.entry "Nom de la cuvée" do
     = @bottle.name
   = data.entry "Mis en ligne par" do
     = @bottle.user.full_name
   = data.entry "Couleur", pill: true, color: @bottle.color do
-    = t("enumerize.bottle.color.#{@bottle.color}")
+    = color

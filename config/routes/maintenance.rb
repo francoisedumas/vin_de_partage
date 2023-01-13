@@ -9,4 +9,5 @@ namespace :maintenance do
   get "/", controller: :base, action: :index
   resources :users
   resources :jobs, only: :index
+  resources :bottles, only: :index
 end

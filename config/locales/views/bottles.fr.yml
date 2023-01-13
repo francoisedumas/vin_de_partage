@@ -5,8 +5,13 @@ fr:
       wines: Les vins
     show:
       feed: Feed
+      info: Information générale
       wines: Vins
     new:
       feed: Feed
       new_wine: Nouveau vin
+      wines: Vins
+    edit:
+      feed: Feed
+      edit_wine: Mettre à jour le vin
       wines: Vins

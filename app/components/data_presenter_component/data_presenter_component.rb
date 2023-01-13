@@ -4,9 +4,11 @@ module DataPresenterComponent
   class DataPresenterComponent < ViewComponent::Base
     renders_many :entries, "EntryComponent"
 
-    def initialize(title)
+    def initialize(title:, path: nil, icon: nil)
       super
       @title = title
+      @path = path
+      @icon = icon || "fa-link"
     end
 
     class EntryComponent < ViewComponent::Base

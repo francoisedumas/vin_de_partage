@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
     root "feed#show"
     resource :feed, only: [:show], controller: :feed
-    resources :bottles, only: %i[index show new create]
+    resources :bottles, except: :destroy
     resources :producers, only: %i[index show new create]
   end
 

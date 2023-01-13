@@ -16,3 +16,6 @@ fr:
     jobs:
       index:
         title: Jobs
+    bottles:
+      index:
+        title: Vins

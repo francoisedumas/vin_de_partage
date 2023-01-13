@@ -7,11 +7,11 @@ fr:
         other: "%{count} vins recensés"
     attributes:
       bottle:
-        name: Nom
+        appelation: Appelation
+        color: Couleur
         country: Pays
         domaine_name: Nom du domaine
+        name: Nom
         producer: Nom du producteur
-        appelation: Appelation
         region: Région
-        color: Couleur
         year: Année

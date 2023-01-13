@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BottlesController < ApplicationController
-  before_action :set_bottle, only: %i[show]
+  before_action :set_bottle, only: %i[show edit update]
 
   def index
     @breadcrumb_items = {
@@ -19,14 +19,31 @@ class BottlesController < ApplicationController
 
   def new
     @breadcrumb_items = {
-      "bottles.show.feed": feed_path
+      "bottles.new.feed": feed_path
     }
     @bottle = Bottle.new
+  end
+
+  def edit
+    @breadcrumb_items = {
+      "bottles.edit.feed": feed_path,
+      "bottles.edit.wines": bottles_path
+    }
   end
 
   def create
     @bottle = current_user.bottles.build(bottle_params)
 
+    respond_to do |format|
+      if @bottle.save
+        format.html { redirect_to bottle_path(@bottle) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
     respond_to do |format|
       if @bottle.save
         format.html { redirect_to bottle_path(@bottle) }
