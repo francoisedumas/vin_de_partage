@@ -4,6 +4,8 @@ class Producer < ApplicationRecord
   extend Enumerize
 
   belongs_to :user
+  has_many :producer_labels, dependent: :destroy
+  has_many :labels, through: :producer_labels
 
   geocoded_by :address
   # after_validation :geocode, if: :will_save_change_to_address?

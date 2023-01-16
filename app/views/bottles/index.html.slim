@@ -11,8 +11,7 @@
       bottles_path(search: "my_wines"),
       class: "btn btn-primary flex justify-center mb-2 #{'hidden' if @filter}",
       data: { turbo_frame: "bottles", "toggle-target": "content", action: "click->toggle#toggle" }
-    .grid.grid-cols-1.gap-y-4.sm:grid-cols-2.sm:gap-x-6.sm:gap-y-10.lg:grid-cols-3.lg:gap-x-8
-      = turbo_frame_tag "bottles" do
-        - @bottles.each do |bottle|
-          .flex.justify-center.p-2
-            = render FeedCardComponent::FeedCardComponent.new(instance: bottle, path: bottle_path(bottle))
+    = turbo_frame_tag class:"grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" do
+      - @bottles.each do |bottle|
+        .flex.justify-center.p-2
+          = render FeedCardComponent::FeedCardComponent.new(instance: bottle, path: bottle_path(bottle))
