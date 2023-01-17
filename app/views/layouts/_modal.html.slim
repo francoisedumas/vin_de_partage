@@ -1,0 +1,35 @@
+template#modal-template
+  .fixed.z-10.inset-0.overflow-y-auto aria-labelledby="modal-title" role="dialog" aria-modal="true"
+    .absolute.top-0.right-0.bottom-0.left-0.z-10 data-modal="close"
+      .hidden.sm:block.fixed.top-0.right-0.pt-4.pr-4
+        / This close button is actually fake, the closing is triggered by the click on the background catch by the `data-modal="close"` just above
+        / This kinda serves as a clue for the user
+        button.text-gray-100.hover:text-gray-300.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-indigo-500 type="button"
+          span.sr-only = t("close")
+          i.fa-solid.fa-xmark.fa-xl
+    .flex.items-end.justify-center.min-h-screen.pt-4.px-4.pb-20.text-center.sm:block.sm:p-0
+
+      / Background overlay, show/hide based on modal state.
+
+      / Entering: "ease-out duration-300"
+      /   From: "opacity-0"
+      /   To: "opacity-100"
+      / Leaving: "ease-in duration-200"
+      /   From: "opacity-100"
+      /   To: "opacity-0"
+      .fixed.inset-0.bg-gray-500.bg-opacity-75.transition-opacity aria-hidden="true"
+
+      / This element is to trick the browser into centering the modal contents.
+      span.hidden.sm:inline-block.sm:align-middle.sm:h-screen aria-hidden="true" &#8203;
+
+      / Modal panel, show/hide based on modal state.
+
+      / Entering: "ease-out duration-300"
+      /   From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      /   To: "opacity-100 translate-y-0 sm:scale-100"
+      / Leaving: "ease-in duration-200"
+      /   From: "opacity-100 translate-y-0 sm:scale-100"
+      /   To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+
+      .relative.z-20.inline-block.align-bottom.bg-white.rounded-lg.px-4.pt-5.pb-4.text-left.overflow-hidden.shadow-xl.transform.transition-all.sm:my-8.sm:align-middle.sm:max-w-fit.sm:w-full.sm:p-6.self-center data-modal="wrapper"
+        .modal-content

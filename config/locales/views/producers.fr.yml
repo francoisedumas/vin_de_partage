@@ -7,6 +7,7 @@ fr:
       feed: Feed
       producers: Producteurs
     new:
+      add_label: Ajouter un label
       feed: Feed
       address: Adresse
       new_producer: Nouveau producteur
