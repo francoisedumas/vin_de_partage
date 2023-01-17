@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_110653) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_081739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_110653) do
     t.index ["user_id"], name: "index_bottles_on_user_id"
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "producer_labels", force: :cascade do |t|
+    t.bigint "label_id", null: false
+    t.bigint "producer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_producer_labels_on_label_id"
+    t.index ["producer_id"], name: "index_producer_labels_on_producer_id"
+  end
+
   create_table "producers", force: :cascade do |t|
     t.string "name"
     t.string "domaine_name"
@@ -101,5 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_110653) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bottles", "users"
+  add_foreign_key "producer_labels", "labels"
+  add_foreign_key "producer_labels", "producers"
   add_foreign_key "producers", "users"
 end

@@ -7,6 +7,7 @@ pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
 pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin_all_from "app/javascript/components", under: "components"
 pin "el-transition", to: "https://ga.jspm.io/npm:el-transition@0.0.7/index.js"
 
 # For address autocomplete
