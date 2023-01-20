@@ -4,6 +4,7 @@ fr:
     email: alice.martin@example.com
     first_name: Alice
     last_name: Martin
+    label: Vigneron indépendant
     name: Les chiens chiens
     country: France
     region: Loire
