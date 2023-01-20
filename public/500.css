@@ -1,0 +1,80 @@
+/* CSS DE LA PAGE ERROR 404 */
+
+.mariodiv {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: url("https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true"),
+    url("https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true"),
+    url("https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true"),
+    url("https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true");
+  background-color: #f8e0b0;
+  background-repeat: no-repeat, repeat-x, repeat-x, repeat-x;
+  background-position: left 0% bottom -550px, left 0px bottom -550px,
+  left 0px bottom -550px, left 0px bottom -550px;
+  animation: back 16s infinite linear;
+}
+
+@keyframes back {
+  0% {
+    background-position: left 0% bottom -320px, left 0px bottom -320px,
+      left 0px bottom -320px, left 0px bottom -320px;
+  }
+  50% {
+    background-position: left 50% bottom -320px,
+      left 100px bottom -320px,
+      left 100px bottom -320px,
+      left 100px bottom -320px;
+  }
+  100% {
+    background-position: left 100% bottom -320px,
+      left 100px bottom -320px,
+      left 100px bottom -320px,
+      left 100px bottom -320px;
+  }
+}
+
+.title-error {
+  color: #489070;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 100px 20px 20px 20px;
+}
+
+.title-error h6 {
+  color: red;
+}
+
+@keyframes desktop {
+  0% {
+    background-position: left 0% bottom 0px, left 0px bottom 0px,
+      left 0px bottom 0px, left 0px bottom 0px;
+  }
+  50% {
+    background-position: left 50% bottom 0px,
+      left 100px bottom 0px,
+      left 100px bottom 0px,
+      left 100px bottom 0px;
+  }
+  100% {
+    background-position: left 100% bottom 0px,
+      left 100px bottom 0px,
+      left 100px bottom 0px,
+      left 100px bottom 0px;
+  }
+}
+
+
+@media (min-width: 575px) {
+  .title-error {
+    padding: 20px 20px 20px 20px;
+    font-size: 80px;
+  }
+
+  .mariodiv {
+    background-position: left 0% bottom -50px, left 0px bottom -50px,
+    left 0px bottom -50px, left 0px bottom -50px;
+    animation: desktop 16s infinite linear;
+  }
+}
