@@ -3,30 +3,9 @@
 class Bottle < ApplicationRecord
   extend Enumerize
 
+  # Associations
   belongs_to :user
 
-  # COUNTRIES = %i[
-  #   Italie
-  #   France
-  #   Espagne
-  #   USA
-  #   Argentine
-  #   Australie
-  #   Chili
-  #   Afrique du Sud
-  #   Chine
-  #   Allemagne
-  #   Portugal
-  #   Russie
-  #   Roumanie
-  #   Hongrie
-  #   Nouvelle-Zélande
-  #   Brésil
-  #   Autriche
-  #   Grèce
-  #   Géorgie
-  #   Suisse
-  # ].freeze
   COUNTRIES = %i[
     france
   ].freeze

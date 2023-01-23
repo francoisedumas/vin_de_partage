@@ -15,4 +15,7 @@
     = f.file_field :photo, class: "text-input p-0"
 
     - c.with_action do
+      = link_to t("cancel"), bottle_path(@bottle), class: "btn"
+
+    - c.with_action do
       = f.submit t("save"), class: "btn btn-primary"

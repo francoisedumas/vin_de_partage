@@ -3,6 +3,7 @@
 class Producer < ApplicationRecord
   extend Enumerize
 
+  # Associations
   belongs_to :user
   has_many :producer_labels, dependent: :destroy
   has_many :labels, through: :producer_labels
@@ -42,6 +43,10 @@ class Producer < ApplicationRecord
   ].freeze
 
   enumerize :region, in: REGIONS, predicates: true
+
+  # Validations
+  validates :region, presence: true
+  validates :domaine_name, presence: true
 
   accepts_nested_attributes_for :producer_labels, reject_if: proc { |attributes| attributes["label_id"].blank? }
 

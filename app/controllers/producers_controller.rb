@@ -29,7 +29,6 @@ class ProducersController < ApplicationController
       "producers.show.feed": feed_path
     }
     @producer = Producer.new
-    @labels = Label.all
   end
 
   def create

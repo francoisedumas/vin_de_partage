@@ -5,7 +5,7 @@
       div
         = form.input :label_id, class: "text-input mb-6",
           label: t("option"),
-          collection: @labels, label_method: :name, value_method: :id
+          collection: Label.all, label_method: :name, value_method: :id
 
     .mx-3.align-self-end
       = button_tag data: { action: "nested-form#removeAssociation" } do
