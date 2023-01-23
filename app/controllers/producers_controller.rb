@@ -48,7 +48,7 @@ class ProducersController < ApplicationController
   private
 
   def set_producer
-    @producer = Producer.find(params[:id])
+    @producer = Producer.includes(:labels).find(params[:id])
   end
 
   def producer_params

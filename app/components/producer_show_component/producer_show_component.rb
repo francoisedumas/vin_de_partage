@@ -2,9 +2,12 @@
 
 module ProducerShowComponent
   class ProducerShowComponent < ViewComponent::Base
+    include ImageHelper
+
     def initialize(producer:, only_static_position: false)
       super
       @producer = producer
+      @labels = producer.labels || []
       @only_static_position = only_static_position
     end
 

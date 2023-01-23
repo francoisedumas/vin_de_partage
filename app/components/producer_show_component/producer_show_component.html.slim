@@ -16,8 +16,12 @@
       div.w-full.p-4.md:p-6.bg-gray-100.flex.flex-col.justify-between.grow
         .flex.flex-col-reverse.md:flex-row.lg:flex-col-reverse.xl:flex-row.justify-between.grow
           .flex.flex-col.justify-between.grow
-            p.w-full.inline-block.md:pr-10.text-sm.mb-3
-              | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+            - if @labels.any?
+              .w-full.flex.flex-wrap.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
+                - @labels.each do |label|
+                  = regular_image(label.photo, 80)
+            / p.w-full.inline-block.md:pr-10.text-sm.mb-3
+            /   | Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
             .flex
               - if @producer.website?
                 = link_to "Voir le site du vigneron", "#{@producer.website}", target: "_blank", class: "btn btn-primary py-2 px-3"
