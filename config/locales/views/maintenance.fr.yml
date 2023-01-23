@@ -19,3 +19,10 @@ fr:
     bottles:
       index:
         title: Vins
+    labels:
+      index:
+        title: Labels
+      new:
+        title: Nouveau label
+      edit:
+        title: Modifier le label

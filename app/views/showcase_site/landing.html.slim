@@ -58,6 +58,10 @@
                     | Jeanne Rouge
                   p.text-base.font-medium.text-red-100
                     | Amatrice de vin
+                = button_tag class: "mt-6 btn btn-primary text-sm lg:text-md",
+                              data: modal_with(render("showcase_site/about")) do
+                  i.fa-solid.fa-comment-question.mr-2
+                  = t('about')
 
     footer.bg-gray-50[aria-labelledby="footer-heading"]
       h2#footer-heading.sr-only

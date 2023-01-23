@@ -1,0 +1,15 @@
+= simple_form_for [:maintenance, label] do |f|
+  = render FormComponent::FormComponent.new do |c|
+    = f.input :name, placeholder: t("placeholders.label")
+    - if label.photo.attached?
+      .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
+        .mx-auto = regular_image(label.photo, 80)
+        = f.file_field :photo, class: "text-input p-0"
+    - else
+      = f.file_field :photo, class: "text-input p-0"
+
+    - c.with_action do
+      = link_to t("cancel"), maintenance_labels_path, class: "btn"
+
+    - c.with_action do
+      = f.submit t("save"), class: "btn btn-primary"

@@ -30,6 +30,7 @@ class ProducersController < ApplicationController
       "producers.show.feed": feed_path
     }
     @producer = Producer.new
+    @labels = Label.all
   end
 
   def create
@@ -58,7 +59,8 @@ class ProducersController < ApplicationController
       :region,
       :website,
       :latitude,
-      :longitude
+      :longitude,
+      { producer_labels_attributes: [:label_id] }
     )
   end
 end
