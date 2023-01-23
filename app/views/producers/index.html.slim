@@ -14,4 +14,29 @@
     = turbo_frame_tag "producers", class:"grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" do
       - @producers.each do |producer|
         .flex.justify-center.p-2
-          = render ProducerShowComponent::ProducerShowComponent.new(producer: producer)
+          .flex.flex-col.overflow-x-hidden.overflow-y-auto.w-full.h-full
+            div.overflow-hidden.p-4.md:p-6.flex.flex-col.bg-cover.bg-center.shrink-0 style='background-image: linear-gradient(180deg, rgba(0,0,0,0.6264706566220238) 0%, rgba(0,0,0,0.6404762588629201) 18%, rgba(255,255,255,0) 100%), url("#{image_path producer.cover}");'
+              h2.grow.text-white.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden title=("#{producer.domaine_name}") = producer.domaine_name
+              .mb-4.md:mb-6
+                .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0.mb-3
+                  = render(LabelComponent::LabelComponent.new(name: "Vin rouge", color: "red"))
+                  = render(LabelComponent::LabelComponent.new(name: "Vin blanc", color: "white"))
+                .flex.flex-col.lg:flex-row.overflow-hidden.space-x-0.lg:space-x-3.space-y-3.lg:space-y-0
+                  = render(LabelComponent::LabelComponent.new(name: "Vigneron independant", type: "tag"))
+                  = render(LabelComponent::LabelComponent.new(name: producer.region, type: "grapes"))
+
+            div.w-full.p-4.md:p-6.bg-gray-100.flex.flex-col.justify-between.grow
+              .flex.flex-col-reverse.md:flex-row.lg:flex-col-reverse.xl:flex-row.justify-between.grow
+                .flex.flex-col.justify-between.grow
+                  - if producer.labels.any?
+                    .w-full.flex.flex-wrap.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
+                      - producer.labels.each do |label|
+                        = regular_image(label.photo, 80)
+                  .flex
+                    - if producer.website?
+                      = link_to "Voir le site du vigneron", "#{producer.website}", target: "_blank", class: "btn btn-primary py-2 px-3"
+                    - else
+                      = link_to "Renseigner le site du vigneron", "#", target: "_blank", class: "btn btn-primary py-2 px-3"
+
+                .flex.flex-wrap.md:flex-col.lg:flex-row.xl:flex-col.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
+                    = render(TagComponent::TagComponent.new(name: "lorem", icon: "fa-house"))
