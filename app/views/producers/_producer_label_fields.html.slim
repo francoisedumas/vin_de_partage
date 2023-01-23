@@ -1,0 +1,12 @@
+/ .nested-fields is needed to be deleted by Stimulus
+.nested-fields
+  .pt-2.flex.justify-between.items-center
+    .grow.grid.grid-cols-1.gap-3.mr-8.lg:mr-4
+      div
+        = form.input :label_id, class: "text-input mb-6",
+          label: t("option"),
+          collection: @labels, label_method: :name, value_method: :id
+
+    .mx-3.align-self-end
+      = button_tag data: { action: "nested-form#removeAssociation" } do
+        i.fas.fa-trash-alt.text-danger

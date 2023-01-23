@@ -16,5 +16,22 @@
       = f.input :name, placeholder: t("placeholders.producer")
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :website, placeholder: t("placeholders.website")
+
+    fieldset.border.p-3.mb-6.rounded-md data={ controller: "nested-form" }
+      legend.px-2.mb-3.text-sm.font-semibold.text-gray-700 = t(".producer_labels")
+
+      template data={ target: "nested-form.template"}
+        = f.simple_fields_for :producer_labels, ProducerLabel.new, child_index: "CHILD_INDEX" do |producer_label_form|
+          = render "producer_label_fields", form: producer_label_form
+
+      .mt-1 data={ target: "nested-form.associations"}
+        = f.simple_fields_for :producer_labels, ProducerLabel.new do |producer_label_form|
+          = render "producer_label_fields", form: producer_label_form
+
+      .mt-1
+        = button_tag data: { action: "nested-form#addAssociation" }, class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none" do
+          i.fa-solid.fa-plus.mr-1
+          = t(".add_label")
+
     - c.with_action do
       = f.submit t("save"), class: "btn btn-primary"

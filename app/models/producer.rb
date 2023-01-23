@@ -43,6 +43,8 @@ class Producer < ApplicationRecord
 
   enumerize :region, in: REGIONS, predicates: true
 
+  accepts_nested_attributes_for :producer_labels, reject_if: proc { |attributes| attributes["label_id"].blank? }
+
   after_create do
     cover = PHOTO[region.to_sym] || PHOTO[:default]
     update(cover:)
