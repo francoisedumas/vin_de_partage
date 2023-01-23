@@ -7,14 +7,13 @@ class ProducersController < ApplicationController
     @breadcrumb_items = {
       "producers.index.feed": feed_path
     }
-    @producers = Producer.all
 
-    @markers = @producers.geocoded.map do |producer|
-      {
-        id: producer.id,
-        lat: producer.latitude,
-        lng: producer.longitude
-      }
+    if params[:search]
+      @producers = Producer.where(user_id: Current.user)
+      @filter = true
+    else
+      @producers = Producer.all
+      @filter = false
     end
   end
 

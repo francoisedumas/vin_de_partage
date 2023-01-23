@@ -33,3 +33,7 @@ nav.mt-10.flex-1.px-2.space-y-1
   = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.add_producer"),
     icon: "fa-circle-plus",
     path: new_producer_path)
+
+  = render MenuLinkComponent::MenuLinkComponent.new(title: t("menu.explore"),
+    icon: "fa-map",
+    path: map_path)

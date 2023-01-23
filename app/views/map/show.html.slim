@@ -1,0 +1,15 @@
+- content_for :title do
+  = t(".producers")
+.bg-white
+  .mx-auto.max-w-2xl.py-8.px-4.sm:py-12.sm:px-6.lg:max-w-7xl.lg:px-8
+    h2.sr-only = t(".producers")
+    .my-3.text-sm.text-gray-500
+      = t("activerecord.models.producer", count: @producers.count)
+
+section.w-full.mb-2 data-controller="map" data-map-markers-value="#{@markers.to_json}" data-map-api-key-value="#{Rails.application.credentials.mapbox.public_key}"
+  .flex.justify-center.relative.w-full class="h-[48rem]"
+    .grow.m-x-auto data-map-target="mapContainer" class="h-full"
+    .hidden.top-0.lg:block class="h-full lg:w-[32rem]"
+      = turbo_frame_tag "producer-show", "data-map-target": "producerShow", src: producer_path(@producers.first)
+    .lg:hidden
+      = turbo_frame_tag "producer-show", "data-map-target": "producerShow"

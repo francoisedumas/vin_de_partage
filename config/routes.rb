@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resource :feed, only: [:show], controller: :feed
     resources :bottles, except: :destroy
     resources :producers, only: %i[index show new create]
+    resource :map, only: [:show], controller: :map
   end
 
   get "landing", to: "showcase_site#landing"
