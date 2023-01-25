@@ -50,6 +50,7 @@ class BottlesController < ApplicationController
   end
 
   def update
+    @bottle.update(bottle_params)
     respond_to do |format|
       if @bottle.save
         format.html { redirect_to bottle_path(@bottle) }

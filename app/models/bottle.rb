@@ -33,4 +33,8 @@ class Bottle < ApplicationRecord
 
   # Associations
   has_one_attached :photo
+
+  # Validations
+  validates :region, presence: true
+  validates :domaine_name, presence: true
 end

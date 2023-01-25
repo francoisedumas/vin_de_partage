@@ -14,8 +14,9 @@
       = f.input :year, placeholder: t("placeholders.year"), input_html: { type: 'number', min: '1900', max:"#{Date.today.year}" }
     = f.file_field :photo, class: "text-input p-0"
 
-    - c.with_action do
-      = link_to t("cancel"), bottle_path(@bottle), class: "btn"
+    - if @bottle.persisted?
+      - c.with_action do
+        = link_to t("cancel"), bottle_path(@bottle), class: "btn"
 
     - c.with_action do
       = f.submit t("save"), class: "btn btn-primary"
