@@ -10,5 +10,6 @@ namespace :maintenance do
   resources :users
   resources :jobs, only: :index
   resources :bottles, only: :index
+  resources :producers, only: [:index, :edit, :update]
   resources :labels
 end
