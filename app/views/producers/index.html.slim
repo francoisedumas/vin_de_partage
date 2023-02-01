@@ -16,7 +16,10 @@
         .flex.justify-center.p-2
           .flex.flex-col.overflow-x-hidden.overflow-y-auto.w-full.h-full
             div.overflow-hidden.p-4.md:p-6.flex.flex-col.bg-cover.bg-center.shrink-0 style='background-image: linear-gradient(180deg, rgba(0,0,0,0.6264706566220238) 0%, rgba(0,0,0,0.6404762588629201) 18%, rgba(255,255,255,0) 100%), url("#{image_path producer.cover}");'
-              h2.grow.text-white.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden title=("#{producer.domaine_name}") = producer.domaine_name
+              .flex.justify-between
+                h2.grow.text-white.text-2xl.h-16.mb-4.md:mb-6.mr-5.md:mr-3.text-ellipsis.overflow-hidden title=("#{producer.domaine_name}") = producer.domaine_name
+                = link_to edit_producer_path(producer) do
+                  i.fa-pen-to-square.fa-duotone.fa-fw.text-red-500
               .mb-4.md:mb-6
                 .mt-4.flex.flex-col.overflow-hidden.space-x-0.space-y-3
                   - if producer.name

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProducersController < ApplicationController
-  before_action :set_producer, only: %i[show]
+  before_action :set_producer, only: %i[show edit update]
 
   def index
     @breadcrumb_items = {
@@ -31,9 +31,27 @@ class ProducersController < ApplicationController
     @producer = Producer.new
   end
 
+  def edit
+    @breadcrumb_items = {
+      "producers.edit.feed": feed_path,
+      "producers.edit.producers": producers_path
+    }
+  end
+
   def create
     @producer = current_user.producers.build(producer_params)
 
+    respond_to do |format|
+      if @producer.save
+        format.html { redirect_to producer_path(@producer) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @producer.update(producer_params)
     respond_to do |format|
       if @producer.save
         format.html { redirect_to producer_path(@producer) }
