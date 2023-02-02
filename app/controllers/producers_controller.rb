@@ -20,7 +20,7 @@ class ProducersController < ApplicationController
   def show
     @breadcrumb_items = {
       "producers.show.feed": feed_path,
-      "producers.show.wines": producers_path
+      "producers.show.producers": producers_path
     }
   end
 
