@@ -15,9 +15,7 @@
 
     .w-full.flex.flex-wrap.items-center.justify-center.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
       - @producer.producer_labels.each do |producer_label|
-        .flex.flex-col.items-center.justify-center data={ controller: "label", "label-url-value": producer_label_path(producer_label), "label-target": "item" }
-          = regular_image(producer_label.label.photo, 80)
-          p data={ action: "click->label#delete" } "Delete"
+        = render "producer_labels/producer_label", producer_label: producer_label
 
     fieldset.border.p-3.mb-6.rounded-md data={ controller: "nested-form" }
       legend.px-2.mb-3.text-sm.font-semibold.text-gray-700 = t("placeholders.producer_labels")
