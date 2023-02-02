@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resource :feed, only: [:show], controller: :feed
     resources :bottles, except: :destroy
     resources :producers, except: :destroy
-    resources :labels, only: [:destroy]
+    resources :producer_labels, only: [:destroy]
     resource :map, only: [:show], controller: :map
   end
 
