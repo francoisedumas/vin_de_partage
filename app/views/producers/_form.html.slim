@@ -1,0 +1,34 @@
+= simple_form_for @producer, data: {controller: "address-autocomplete", address_autocomplete_api_key_value: Rails.application.credentials.mapbox.public_key} do |f|
+  = render FormComponent::FormComponent.new do |c|
+    = f.hidden_field :latitude, data: { address_autocomplete_target: "latitude" }
+    = f.hidden_field :longitude, data: { address_autocomplete_target: "longitude" }
+    .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
+      div
+        = f.hidden_field :address, placeholder: t("placeholders.address_exemple"), data: { address_autocomplete_target: "address" }
+        = f.label t("placeholders.address"), class:"block text-sm font-medium text-gray-700 mb1"
+        .w-full data={"address-autocomplete-target": "search"}
+      = f.input :region, placeholder: t("placeholders.region")
+    .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
+      = f.input :domaine_name, placeholder: t("placeholders.domaine_name")
+      = f.input :name, placeholder: t("placeholders.producer")
+    .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
+      = f.input :website, placeholder: t("placeholders.website")
+
+    fieldset.border.p-3.mb-6.rounded-md data={ controller: "nested-form" }
+      legend.px-2.mb-3.text-sm.font-semibold.text-gray-700 = t("placeholders.producer_labels")
+
+      template data={ target: "nested-form.template"}
+        = f.simple_fields_for :producer_labels, ProducerLabel.new, child_index: "CHILD_INDEX" do |producer_label_form|
+          = render "producer_label_fields", form: producer_label_form
+
+      .mt-1 data={ target: "nested-form.associations"}
+        = f.simple_fields_for :producer_labels, ProducerLabel.new do |producer_label_form|
+          = render "producer_label_fields", form: producer_label_form
+
+      .mt-1
+        = button_tag data: { action: "nested-form#addAssociation" }, class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none" do
+          i.fa-solid.fa-plus.mr-1
+          = t(".add_label")
+
+    - c.with_action do
+      = f.submit t("save"), class: "btn btn-primary"

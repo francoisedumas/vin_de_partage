@@ -9,7 +9,9 @@ fr:
     new:
       add_label: Ajouter un label
       feed: Feed
-      address: Adresse
       new_producer: Nouveau producteur
       producers: Producteurs
-      producer_labels: Labelisations du viticulteur
+    edit:
+      feed: Feed
+      edit_producer: Mettre à jour le producteur
+      producers: Producteurs

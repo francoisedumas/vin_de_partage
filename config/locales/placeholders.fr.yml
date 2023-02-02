@@ -1,6 +1,7 @@
 fr:
   placeholders:
-    address: 10 rue du Fromage, 61120 Camembert
+    address: Adresse
+    address_exemple: 10 rue du Fromage, 61120 Camembert
     email: alice.martin@example.com
     first_name: Alice
     last_name: Martin
@@ -11,6 +12,7 @@ fr:
     appelation: Chinon
     domaine_name: Château de Naie
     producer: Charles Pain
+    producer_labels: Labelisations du viticulteur
     color: Rouge
     year: 2000
     website: Site web
