@@ -12,3 +12,11 @@
 
     - c.with_action do
       = f.submit t("save"), class: "btn btn-primary"
+
+= simple_form_for @user, url: password_path(@user), method: :put do |f|
+  = render FormComponent::FormComponent.new do |c|
+    = f.input :current_password, autocomplete: "off", placeholder: t("placeholders.current_password"), input_html: { type: "password" }
+    = f.input :password, autocomplete: "off", placeholder: t("placeholders.new_password"), input_html: { type: "password" }
+    = f.input :password_confirmation, autocomplete: "off", placeholder: t("placeholders.confirm_new_password"), input_html: { type: "password" }
+    - c.with_action do
+      = f.submit t("update"), class: "btn btn-primary"

@@ -16,3 +16,6 @@ fr:
     color: Rouge
     year: 2000
     website: Site web
+    current_password: Mot de passe actuel
+    new_password: Nouveau mot de passe
+    confirm_new_password: Confirmez votre nouveau mot de passe

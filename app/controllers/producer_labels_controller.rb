@@ -7,7 +7,6 @@ class ProducerLabelsController < ApplicationController
     @producer_label.destroy
     respond_to do |format|
       format.html { redirect_to producers_url, notice: "Label was successfully destroyed." }
-      format.json { render json: { success: true } }
       format.turbo_stream { flash.now[:notice] = "Label was successfully destroyed." }
     end
   end
