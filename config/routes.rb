@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :producers, except: :destroy
     resources :producer_labels, only: [:destroy]
     resource :map, only: [:show], controller: :map
+    resources :passwords, only: [:update]
   end
 
   get "landing", to: "showcase_site#landing"
