@@ -5,6 +5,7 @@ class Bottle < ApplicationRecord
 
   # Associations
   belongs_to :user
+  belongs_to :producer, optional: true
 
   COUNTRIES = %i[
     france

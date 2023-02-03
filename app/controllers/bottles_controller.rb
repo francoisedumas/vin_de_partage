@@ -69,7 +69,7 @@ class BottlesController < ApplicationController
   def bottle_params
     params.require(:bottle).permit(
       :name, :country, :region,
-      :domaine_name, :producer, :appelation,
+      :domaine_name, :producer_name, :appelation,
       :color, :year,
       :photo
     )
