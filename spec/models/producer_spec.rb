@@ -1,8 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Producer, type: :model do
+  let(:instance) { create(:producer) }
+
+  it "create and persist a school" do
+    expect(instance).to be_valid
+  end
+
   describe "associations" do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:bottles) }
+    it { is_expected.to have_many(:producer_labels).dependent(:destroy) }
+    it { is_expected.to have_many(:labels) }
   end
 
   describe "enumerize region" do

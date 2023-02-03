@@ -3,11 +3,12 @@ FactoryBot.define do
     name { Faker::Name.name }
     country { "france" }
     domaine_name { Faker::Company.name }
-    producer { Faker::Name.name }
+    producer_name { Faker::Name.name }
     appelation { Faker::Lorem.word }
     region { "beaujolais" }
     color { "red" }
-    year { Faker::Number.between(1900, Time.current.year) }
+    year { 1988 }
     user
+    producer
   end
 end

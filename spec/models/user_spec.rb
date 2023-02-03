@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) { User.new(
-    email: "test@example.com",
-    password: "Azerty123!",
-    role: "admin",
-    first_name: "Alice",
-    last_name: " Liddell "
-  )}
+  let(:user) { create(:user, first_name: "Alice", last_name: " Liddell ") }
+
+  it "create and persist a user" do
+    expect(user).to be_valid
+  end
 
   describe "validations" do
     it { is_expected.to validate_presence_of :email }

@@ -1,8 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Bottle, type: :model do
+  let(:instance) { create(:bottle) }
+
+  it "create and persist a bottle" do
+    expect(instance).to be_valid
+  end
+
   describe "associations" do
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:producer).optional(true) }
     it { is_expected.to have_one_attached(:photo) }
   end
 
