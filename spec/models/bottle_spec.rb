@@ -44,4 +44,23 @@ RSpec.describe Bottle, type: :model do
       :france
     )}
   end
+
+  describe "#set_producer_name" do
+    let(:producer) { create(:producer, domaine_name: "Awesome Inc.") }
+    let(:bottle) { create(:bottle, producer_name: nil, producer: nil) }
+
+    it "sets the producer_name to the associated producer's domain_name" do
+      expect {
+        bottle.update(producer: producer)
+      }.to change { bottle.producer_name }.from(nil).to("Awesome Inc.")
+    end
+
+    it "does not set the producer_name if producer_name is already present" do
+      bottle.update(producer_name: "My Own Name")
+      bottle.reload
+      expect {
+        bottle.update(producer: producer)
+      }.not_to change { bottle.producer_name }
+    end
+  end
 end

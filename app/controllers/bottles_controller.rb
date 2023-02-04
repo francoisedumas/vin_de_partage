@@ -2,6 +2,7 @@
 
 class BottlesController < ApplicationController
   before_action :set_bottle, only: %i[show edit update]
+  before_action :set_producers, only: %i[new edit]
 
   def index
     @breadcrumb_items = {
@@ -66,11 +67,15 @@ class BottlesController < ApplicationController
     @bottle = Bottle.find(params[:id])
   end
 
+  def set_producers
+    @producers = Producer.all
+  end
+
   def bottle_params
     params.require(:bottle).permit(
       :name, :country, :region,
-      :domaine_name, :producer_name, :appelation,
-      :color, :year,
+      :domaine_name, :producer_name, :producer_id,
+      :appelation, :color, :year,
       :photo
     )
   end

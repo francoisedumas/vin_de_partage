@@ -7,6 +7,9 @@ class Bottle < ApplicationRecord
   belongs_to :user
   belongs_to :producer, optional: true
 
+  # to check how to use , if: :producer_id_changed?
+  after_save :set_producer_name
+
   COUNTRIES = %i[
     france
   ].freeze
@@ -38,4 +41,12 @@ class Bottle < ApplicationRecord
   # Validations
   validates :region, presence: true
   validates :domaine_name, presence: true
+
+  private
+
+  def set_producer_name
+    return if producer_id.nil? || producer_name.present?
+
+    self.producer_name = producer.domaine_name
+  end
 end

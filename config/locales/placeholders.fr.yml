@@ -11,6 +11,7 @@ fr:
     region: Loire
     appelation: Chinon
     domaine_name: Château de Naie
+    domaine_name_optional: Introuvable, rentrez moi manuallement
     producer: Charles Pain
     producer_labels: Labelisations du viticulteur
     color: Rouge

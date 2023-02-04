@@ -4,7 +4,9 @@
       = f.input :country, placeholder: t("placeholders.country")
       = f.input :region, placeholder: t("placeholders.region")
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
-      = f.input :domaine_name, placeholder: t("placeholders.domaine_name")
+      = f.input :producer_id, as: :select, collection: @producers, value_method: :id, label_method: :domaine_name, label: t("activerecord.attributes.bottle.domaine_name")
+      = f.input :domaine_name, placeholder: t("placeholders.domaine_name_optional")
+    .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :producer_name, placeholder: t("placeholders.producer")
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :appelation, placeholder: t("placeholders.appelation")
