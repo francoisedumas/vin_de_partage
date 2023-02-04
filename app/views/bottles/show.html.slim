@@ -22,5 +22,6 @@
     = @bottle.name
   = data.entry "Mis en ligne par" do
     = @bottle.user.full_name
-  = data.entry "Couleur", pill: true, color: @bottle.color do
-    = color
+  - if @bottle.producer_id
+    = data.entry "Domaine" do
+      = link_to @bottle.domaine_name, producer_path(@bottle.producer_id)
