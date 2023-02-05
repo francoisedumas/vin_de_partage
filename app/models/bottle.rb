@@ -40,12 +40,13 @@ class Bottle < ApplicationRecord
 
   # Validations
   validates :region, presence: true
+  validates :color, presence: true
 
   private
 
   def set_domaine_name
     return if producer_id.nil? || domaine_name.present?
 
-    self.domaine_name = producer.domaine_name
+    update(domaine_name: producer.domaine_name)
   end
 end
