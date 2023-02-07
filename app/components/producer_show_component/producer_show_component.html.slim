@@ -17,7 +17,7 @@
             .w-full.flex.flex-wrap.items-center.justify-center.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
               - @labels.each do |label|
                 = regular_image(label.photo, 80)
-          p.text-center.w-full.inline-block.md:pr-10.text-sm.mb-3 = @producer.address
+          p.text-center.w-full.inline-block.text-sm.mb-3 = @producer.address
           .flex
             - if @producer.website?
               = link_to "Voir le site du vigneron", "#{@producer.website}", target: "_blank", class: "btn btn-primary py-2 px-3"

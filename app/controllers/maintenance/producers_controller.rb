@@ -2,7 +2,7 @@
 
 module Maintenance
   class ProducersController < BaseController
-    before_action :set_producer, only: %i[edit update]
+    before_action :set_producer, only: %i[edit update destroy]
 
     def index
       @producers = Producer.all
@@ -27,6 +27,17 @@ module Maintenance
         else
           format.html { render :new, status: :unprocessable_entity }
         end
+      end
+    end
+
+    def destroy
+      if @producer.bottles.empty?
+        @producer.destroy
+        redirect_to maintenance_producers_path
+      else
+        @producers = Producer.all
+        flash[:notice] = "Impossible de supprimer ce producteur"
+        render :index
       end
     end
 
