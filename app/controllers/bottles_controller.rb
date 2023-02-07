@@ -45,6 +45,7 @@ class BottlesController < ApplicationController
       if @bottle.save
         format.html { redirect_to bottle_path(@bottle) }
       else
+        @producers = Producer.all
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -56,6 +57,7 @@ class BottlesController < ApplicationController
       if @bottle.save
         format.html { redirect_to bottle_path(@bottle) }
       else
+        @producers = Producer.all
         format.html { render :new, status: :unprocessable_entity }
       end
     end
