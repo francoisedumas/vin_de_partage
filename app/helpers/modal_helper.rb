@@ -44,11 +44,11 @@ module ModalHelper
   ##
   # Builds a default styled button to close the modal (thanks to the data-modal="close" attribute).
   # A block can be given, as for the regular button_tag helper
-  def modal_cancel_button(text = t("cancel"), **options, &block)
+  def modal_cancel_button(text = t("cancel"), **options, &block) # rubocop:disable Naming/BlockForwarding
     options.assert_valid_keys(:class)
 
     classes = "btn btn-secondary #{options[:class]}"
 
-    button_tag(text, data: { modal: "close" }, type: "button", class: classes, &block)
+    button_tag(text, data: { modal: "close" }, type: "button", class: classes, &block) # rubocop:disable Naming/BlockForwarding
   end
 end

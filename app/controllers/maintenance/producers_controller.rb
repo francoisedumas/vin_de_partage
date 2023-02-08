@@ -23,8 +23,10 @@ module Maintenance
       @producer.update(producer_params)
       respond_to do |format|
         if @producer.save
+          flash[:success] = t("update_done")
           format.html { redirect_to producer_path(@producer) }
         else
+          flash[:alert] = t("update_error")
           format.html { render :new, status: :unprocessable_entity }
         end
       end
@@ -36,7 +38,7 @@ module Maintenance
         redirect_to maintenance_producers_path
       else
         @producers = Producer.all
-        flash[:notice] = "Impossible de supprimer ce producteur"
+        flash[:notice] = t(".error")
         render :index
       end
     end

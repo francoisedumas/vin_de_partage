@@ -1,0 +1,4 @@
+fr:
+  producer_labels:
+    destroy:
+      notice: "Le label a été supprimé avec succès."

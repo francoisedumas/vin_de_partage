@@ -2,6 +2,10 @@ doctype html
 html.h-full.bg-gray-100
   = render "layouts/head"
   body.h-full
+    .absolute.top-2.right-24
+      - flash.each do |flash_type, message|
+        = flash_alert(flash_type, message)
+
     div data={ controller: "sidebar" }
       = render "sidebar/mobile"
       = render "sidebar/desktop"
