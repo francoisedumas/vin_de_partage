@@ -6,8 +6,9 @@ class ProducerLabelsController < ApplicationController
   def destroy
     @producer_label.destroy
     respond_to do |format|
-      format.html { redirect_to producers_url, notice: "Label was successfully destroyed." }
-      format.turbo_stream { flash.now[:notice] = "Label was successfully destroyed." }
+      flash[:notice] = t("producer_labels.destroy.success")
+      format.html { redirect_to producers_url }
+      format.turbo_stream
     end
   end
 

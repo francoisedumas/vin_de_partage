@@ -23,8 +23,10 @@ module Maintenance
       @producer.update(producer_params)
       respond_to do |format|
         if @producer.save
+          flash[:success] = t("update_done")
           format.html { redirect_to producer_path(@producer) }
         else
+          flash[:alert] = t("update_error")
           format.html { render :new, status: :unprocessable_entity }
         end
       end
