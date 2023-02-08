@@ -26,3 +26,12 @@ fr:
         title: Nouveau label
       edit:
         title: Modifier le label
+    producers:
+      index:
+        title: Producteurs
+      new:
+        title: Nouveau producteur
+      edit:
+        title: Modifier le producteur
+      destroy:
+        cannot_remove: Impossible de supprimer ce producteur

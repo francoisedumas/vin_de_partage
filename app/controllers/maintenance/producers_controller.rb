@@ -36,7 +36,7 @@ module Maintenance
         redirect_to maintenance_producers_path
       else
         @producers = Producer.all
-        flash[:notice] = "Impossible de supprimer ce producteur"
+        flash[:notice] = t(".error")
         render :index
       end
     end

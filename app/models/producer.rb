@@ -5,7 +5,7 @@ class Producer < ApplicationRecord
 
   # Associations
   belongs_to :user
-  has_many :bottles
+  has_many :bottles, dependent: :nullify
   has_many :producer_labels, dependent: :destroy
   has_many :labels, through: :producer_labels
 

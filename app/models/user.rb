@@ -25,6 +25,6 @@ class User < ApplicationRecord
   enumerize :role, in: ROLES, predicates: true
 
   def full_name
-    "#{first_name&.strip.capitalize} #{last_name&.strip.upcase}".strip.presence || email.match(/^[^@]+/).to_s.capitalize
+    "#{first_name.strip.capitalize} #{last_name.strip.upcase}".strip.presence || email.match(/^[^@]+/).to_s.capitalize
   end
 end
