@@ -3,14 +3,18 @@
 .bg-white
   .mx-auto.max-w-2xl.py-8.px-4.sm:py-12.sm:px-6.lg:max-w-7xl.lg:px-8 data-controller="toggle" data-toggle-class-value="hidden"
     h2.sr-only = t(".wines")
+    = form_tag bottles_path, method: :get,
+                            data: { turbo_frame: "bottles", turbo_action: "advance", controller: "search", action: "input->search#submit" },
+                            class: "flex justify-center mb-2" do
+      = text_field_tag :query, params[:query], placeholder: t(".search"), class: "form-input rounded-md shadow-sm mt-1 block w-full"
     = link_to "Tous les vins",
-          bottles_path,
+          bottles_path(user_id: nil),
           class: "btn btn-primary flex justify-center mb-2 #{'hidden' if !@filter}",
-          data: { turbo_frame: "bottles", "toggle-target": "content", action: "click->toggle#toggle" }
+          data: { turbo_frame: "bottles", turbo_action: "advance", "toggle-target": "content", action: "click->toggle#toggle" }
     = link_to "Mes vins",
-      bottles_path(search: "my_wines"),
+      bottles_path(user_id: Current.user.id),
       class: "btn btn-primary flex justify-center mb-2 #{'hidden' if @filter}",
-      data: { turbo_frame: "bottles", "toggle-target": "content", action: "click->toggle#toggle" }
+      data: { turbo_frame: "bottles", turbo_action: "advance", "toggle-target": "content", action: "click->toggle#toggle" }
     = turbo_frame_tag "bottles", class:"grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" do
       - @bottles.each do |bottle|
         .flex.justify-center.p-2

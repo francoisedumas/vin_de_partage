@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Bottle < ApplicationRecord
+  include PgSearch::Model
   extend Enumerize
 
   # Associations
@@ -41,6 +42,12 @@ class Bottle < ApplicationRecord
   # Validations
   validates :region, presence: true
   validates :color, presence: true
+
+  pg_search_scope :search_general_information,
+                  against: [:name, :domaine_name, :producer_name, :appelation, :region],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   private
 

@@ -9,7 +9,10 @@
         i.fa-regular.fa-bookmark
     .bg-white.bg-opacity-95.shadow-md.rounded-r-xl.p-4.flex.flex-col.mr-4.mb-8
       h3.text-xl.font-bold.pb-2
-        = @bottle.domaine_name
+        - if @bottle.producer_id
+          = link_to @bottle.domaine_name, producer_path(@bottle.producer_id)
+        - else
+          = @bottle.domaine_name
       p.truncate.text-gray-500.text-sm
         = "#{color} #{@bottle.year}"
 
