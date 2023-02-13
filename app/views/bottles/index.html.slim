@@ -6,15 +6,12 @@
     = form_tag bottles_path, method: :get,
                             data: { turbo_frame: "bottles", turbo_action: "advance", controller: "search", action: "input->search#submit" },
                             class: "flex justify-center mb-2" do
-      = text_field_tag :query, params[:query], placeholder: t(".search"), class: "form-input rounded-md shadow-sm mt-1 block w-full"
-    = link_to "Tous les vins",
-          bottles_path(user_id: nil),
-          class: "btn btn-primary flex justify-center mb-2 #{'hidden' if !@filter}",
-          data: { turbo_frame: "bottles", turbo_action: "advance", "toggle-target": "content", action: "click->toggle#toggle" }
-    = link_to "Mes vins",
-      bottles_path(user_id: Current.user.id),
-      class: "btn btn-primary flex justify-center mb-2 #{'hidden' if @filter}",
-      data: { turbo_frame: "bottles", turbo_action: "advance", "toggle-target": "content", action: "click->toggle#toggle" }
+      .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-3
+        = text_field_tag :query, params[:query], placeholder: t(".search"), class: "form-input rounded-md shadow-sm mt-1 block w-full"
+        = select_tag "color", options_for_select(Bottle::COLORS.collect{ |c| [t(c), c]}), include_blank: true, class: "form-input rounded-md shadow-sm mt-1 block w-full"
+        .flex.items-center.justify-center
+          = check_box_tag :my_wine, true, params[:my_wine], class: "w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 transition duration-150 ease-in-out"
+          = label_tag :my_wine, t(".my_wines"), class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
     = turbo_frame_tag "bottles", class:"grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" do
       - @bottles.each do |bottle|
         .flex.justify-center.p-2

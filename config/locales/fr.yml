@@ -6,8 +6,12 @@ fr:
   edit: Modifier
   existing_option: Option existante
   option: Choix
+  pink: Rosé
+  red: Rouge
   save: Enregistrer
   see_more: Voir plus
-  update: Modifier
   update_done: Modifié avec succès
   update_error: La modification n'a pas pu être effectuée
+  update: Modifier
+  white: Blanc
+  yellow: Jaune

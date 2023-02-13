@@ -8,14 +8,7 @@ class BottlesController < ApplicationController
     @breadcrumb_items = {
       "bottles.show.feed": feed_path
     }
-    @bottles = Bottle.all
-    @bottles = @bottles.search_general_information(params[:query]) if params[:query].present?
-    if params[:user_id]
-      @bottles = @bottles.where(user_id: params[:user_id])
-      @filter = true
-    else
-      @filter = false
-    end
+    @bottles = ::Filters::BottlesFilterService.call(params:, user_id: current_user.id)
   end
 
   def show

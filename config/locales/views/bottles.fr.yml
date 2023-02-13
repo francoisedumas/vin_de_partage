@@ -2,6 +2,7 @@ fr:
   bottles:
     index:
       feed: Feed
+      my_wines: Mes vins
       search: Rechercher un vin
       wines: Les vins
     show:

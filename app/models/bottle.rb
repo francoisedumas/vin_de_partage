@@ -43,6 +43,10 @@ class Bottle < ApplicationRecord
   validates :region, presence: true
   validates :color, presence: true
 
+  # Scopes and search
+
+  scope :by_color, -> (color) { where(color:) }
+
   pg_search_scope :search_general_information,
                   against: [:name, :domaine_name, :producer_name, :appelation, :region],
                   using: {
