@@ -4,7 +4,7 @@ module Filters
   class BottlesFilterService < BaseService
     attr_reader :params
 
-    def initialize(options = {})
+    def initialize(options = {}) # rubocop:disable Lint/MissingSuper
       @params = options[:params]
       @user_id = options[:user_id]
     end

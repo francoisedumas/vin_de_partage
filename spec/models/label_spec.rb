@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Label, type: :model do
-  let(:instance) { create(:label) }
+  subject { create(:label) }
 
   it "create and persist a label" do
-    expect(instance).to be_valid
+    expect(subject).to be_valid
   end
 
   describe "associations" do

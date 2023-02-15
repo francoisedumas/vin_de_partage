@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Bottle, type: :model do
-  let(:instance) { create(:bottle) }
+  subject { create(:bottle) }
 
   it "create and persist a bottle" do
-    expect(instance).to be_valid
+    expect(subject).to be_valid
   end
 
   describe "associations" do
@@ -40,27 +40,30 @@ RSpec.describe Bottle, type: :model do
   end
 
   describe "enumerize country" do
-    it { should enumerize(:country).in(
-      :france
-    )}
+    it { should enumerize(:country).in(:france)}
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of :region }
+    it { is_expected.to validate_presence_of :color }
   end
 
   describe "#set_domaine_name" do
     let(:producer) { create(:producer, domaine_name: "Awesome Inc.") }
-    let(:bottle) { create(:bottle, domaine_name: nil, producer: nil) }
+    subject { create(:bottle, domaine_name: nil, producer: nil) }
 
     it "sets the domaine_name to the associated producer's domaine_name" do
       expect {
-        bottle.update(producer: producer)
-      }.to change { bottle.domaine_name }.from(nil).to("Awesome Inc.")
+        subject.update(producer: producer)
+      }.to change { subject.domaine_name }.from(nil).to("Awesome Inc.")
     end
 
     it "does not set the domaine_name if domaine_name is already present" do
-      bottle.update(domaine_name: "My Own Name")
-      bottle.reload
+      subject.update(domaine_name: "My Own Name")
+      subject.reload
       expect {
-        bottle.update(producer: producer)
-      }.not_to change { bottle.domaine_name }
+        subject.update(producer: producer)
+      }.not_to change { subject.domaine_name }
     end
   end
 end

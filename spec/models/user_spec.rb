@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { create(:user, first_name: "Alice", last_name: " Liddell ") }
+  subject { create(:user, first_name: "Alice", last_name: " Liddell ") }
 
   it "create and persist a user" do
-    expect(user).to be_valid
+    expect(subject).to be_valid
   end
 
   describe "validations" do
@@ -16,8 +16,7 @@ RSpec.describe User, type: :model do
   end
 
   it "expected to be valid with an email, a handle and a password, and to be able to authenticate" do
-    expect(user).to be_valid
-    expect(user.active_for_authentication?).to be true
+    expect(subject.active_for_authentication?).to be true
   end
 
   describe "associations" do
@@ -37,7 +36,7 @@ RSpec.describe User, type: :model do
 
   describe "#full_name" do
     it "returns the user first & last name" do
-      expect(user.full_name).to eq("Alice LIDDELL")
+      expect(subject.full_name).to eq("Alice LIDDELL")
     end
   end
 end
