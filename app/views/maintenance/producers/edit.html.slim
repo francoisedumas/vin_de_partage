@@ -14,7 +14,7 @@
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :website, placeholder: t("placeholders.website")
 
-    .w-full.flex.flex-wrap.items-center.justify-center.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
+    .w-full.flex.flex-wrap.items-end.justify-center.inline-block.gap-2.shrink-0.mb-3.md:mb-0.lg:mb-3.xl:mb-0
       - @producer.producer_labels.each do |producer_label|
         = render "producer_labels/producer_label", producer_label: producer_label
 

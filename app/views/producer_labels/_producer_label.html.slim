@@ -1,5 +1,3 @@
-= turbo_frame_tag producer_label do
-  = simple_form_for producer_label, method: :delete do |f|
-    .flex.flex-col.items-center.justify-center
-      = regular_image(producer_label.label.photo, 80)
-      = f.submit t("destroy"), class: "btn btn-secondary"
+.flex.flex-col.items-center.justify-center data={ controller: "label", "label-url-value": producer_label_path(producer_label), "label-target": "item" }
+  = regular_image(producer_label.label.photo, 80)
+  .btn.btn-secondary.mt-2 data={ action: "click->label#delete" } = t("destroy")
