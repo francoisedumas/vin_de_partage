@@ -13,6 +13,21 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter "/spec/"
+  add_filter "/config/"
+  add_filter "/app/channels/"
+  add_filter "/app/components/"
+  add_filter "/app/helpers/"
+  add_filter "/app/jobs/"
+  add_filter "/app/mailers/"
+  add_filter "/app/policies/"
+  add_filter "/app/presenters/"
+  add_filter '/vendor/'
+end
+
 RSpec.configure do |config|
   # config.include FactoryBot::Syntax::Methods
   # Faker::Config.random = Random.new(42)
