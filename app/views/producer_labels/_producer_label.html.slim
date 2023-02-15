@@ -1,4 +1,5 @@
 = turbo_frame_tag producer_label do
-  .flex.flex-col.items-center.justify-center
-    = regular_image(producer_label.label.photo, 80)
-    = button_to "Delete", producer_label, method: :delete
+  = simple_form_for producer_label, method: :delete do |f|
+    .flex.flex-col.items-center.justify-center
+      = regular_image(producer_label.label.photo, 80)
+      = f.submit t("destroy"), class: "btn btn-secondary"

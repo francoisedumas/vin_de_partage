@@ -1,6 +1,7 @@
 - content_for(:title) { t(".title") }
 
 = simple_form_for @producer, url: maintenance_producer_path do |f|
+  = render FormComponent::FormComponent.new do |c|
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :latitude, data: { address_autocomplete_target: "latitude" }
       = f.input :longitude, data: { address_autocomplete_target: "longitude" }
@@ -17,14 +18,14 @@
       - @producer.producer_labels.each do |producer_label|
         = render "producer_labels/producer_label", producer_label: producer_label
 
-    fieldset.border.p-3.mb-6.rounded-md data={ controller: "nested-form" }
+    fieldset.border.p-3.mb-6.rounded-md data-controller="nested-form"
       legend.px-2.mb-3.text-sm.font-semibold.text-gray-700 = t("placeholders.producer_labels")
 
-      template data={ target: "nested-form.template"}
+      template data-nested-form-target="template"
         = f.simple_fields_for :producer_labels, ProducerLabel.new, child_index: "CHILD_INDEX" do |producer_label_form|
           = render "producers/producer_label_fields", form: producer_label_form
 
-      .mt-1 data={ target: "nested-form.associations"}
+      .mt-1 data-nested-form-target="associations"
         = f.simple_fields_for :producer_labels, ProducerLabel.new do |producer_label_form|
           = render "producers/producer_label_fields", form: producer_label_form
 
@@ -33,4 +34,5 @@
           i.fa-solid.fa-plus.mr-1
           = t(".add_label")
 
-    = f.submit t("save"), class: "btn btn-primary"
+    - c.with_action do
+      = f.submit t("save"), class: "btn btn-primary"
