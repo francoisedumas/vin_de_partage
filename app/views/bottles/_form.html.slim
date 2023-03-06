@@ -13,8 +13,8 @@
       = f.input :color, placeholder: t("placeholders.color")
     .grid.grid-cols-1.gap-y-6.gap-x-4.sm:grid-cols-2
       = f.input :name, placeholder: t("placeholders.name")
-      = f.input :year, placeholder: t("placeholders.year"), input_html: { type: 'number', min: '1900', max:"#{Date.today.year}" }
-    = f.file_field :photo, class: "text-input p-0"
+      = f.input :year, placeholder: t("placeholders.year"), input_html: { type: "number", min: "1900", max:"#{Date.today.year}" }
+    = f.file_field :photo, class: "text-input p-0", data: { controller: "image-upload", action: "change->image-upload#compressImage" }
 
     - if @bottle.persisted?
       - c.with_action do

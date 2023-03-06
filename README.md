@@ -44,3 +44,6 @@ Sidekiq is available at path `/maintenance/sidekiq`
 
 ### Redis 6 setup
 [Heroku article](https://devcenter.heroku.com/articles/connecting-heroku-redis#connecting-in-ruby)
+
+### Adding JS packagge
+`./bin/importmap pin compressorjs@1.2.1`
