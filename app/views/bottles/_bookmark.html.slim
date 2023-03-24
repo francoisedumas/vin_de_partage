@@ -1,0 +1,6 @@
+= turbo_frame_tag "bookmark" do
+  = button_to bookmark_bottle_path(bottle), method: :patch do
+    - if current_user.voted_up_on? bottle, vote_scope: "bookmark"
+      i.fas.fa-thumbs-up
+    - else
+      i.fa-regular.fa-bookmark

@@ -3,6 +3,7 @@
 class Bottle < ApplicationRecord
   include PgSearch::Model
   extend Enumerize
+  acts_as_votable
 
   # Associations
   belongs_to :user
@@ -52,6 +53,14 @@ class Bottle < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def bookmark!(user)
+    if user.voted_up_on? self, vote_scope: "bookmark"
+      unvote_by user, vote_scope: "bookmark"
+    else
+      upvote_by user, vote_scope: "bookmark"
+    end
+  end
 
   private
 

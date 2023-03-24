@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Bottle, type: :model do
   subject { create(:bottle) }
+  let(:user) { create(:user) }
 
   it "create and persist a bottle" do
     expect(subject).to be_valid
@@ -64,6 +65,21 @@ RSpec.describe Bottle, type: :model do
       expect {
         subject.update(producer: producer)
       }.not_to change { subject.domaine_name }
+    end
+  end
+
+  describe "#bookmark!" do
+    it "adds a bookmark vote if user has not bookmarked before" do
+      expect {
+        subject.bookmark!(user)
+      }.to change { subject.get_upvotes(vote_scope: "bookmark").count }.by(1)
+    end
+
+    it "removes the bookmark vote if user has already bookmarked" do
+      subject.upvote_by user, vote_scope: "bookmark"
+      expect {
+        subject.bookmark!(user)
+      }.to change { subject.get_upvotes(vote_scope: "bookmark").count }.by(-1)
     end
   end
 end

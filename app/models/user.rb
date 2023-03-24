@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   extend Enumerize
+  acts_as_voter
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
