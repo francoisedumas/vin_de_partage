@@ -6,7 +6,7 @@
       .bg-red-600.text-white.bg-opacity-95.shadow.px-2.py-1.flex.items-center.font-bold.text-xs.rounded
         = @bottle.appelation
       .bg-red-600.w-10.h-12.shadow.flex.flex-col-reverse.p-2.text-center.font-bold.text-white.rounded-b-full
-        i.fa-regular.fa-bookmark
+        = render "bookmark", bottle: @bottle
     .bg-white.bg-opacity-95.shadow-md.rounded-r-xl.p-4.flex.flex-col.mr-4.mb-8
       h3.text-xl.font-bold.pb-2
         - if @bottle.producer_id

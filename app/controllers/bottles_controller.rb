@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BottlesController < ApplicationController
-  before_action :set_bottle, only: %i[show edit update]
+  before_action :set_bottle, only: %i[show edit update bookmark]
   before_action :set_producers, only: %i[new edit]
 
   def index
@@ -54,6 +54,14 @@ class BottlesController < ApplicationController
         @producers = Producer.all
         format.html { render :new, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def bookmark
+    @bottle.bookmark!(current_user)
+    respond_to do |format|
+      format.html { redirect_to bottle_path(@bottle) }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("bookmark", partial: "bottles/bookmark", locals: { bottle: @bottle }) }
     end
   end
 

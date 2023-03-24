@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
     root "feed#show"
     resource :feed, only: [:show], controller: :feed
-    resources :bottles, except: :destroy
+    resources :bottles, except: :destroy do
+      member do
+        patch :bookmark
+      end
+    end
     resources :producers, except: :destroy
     resources :producer_labels, only: [:destroy]
     resource :map, only: [:show], controller: :map
