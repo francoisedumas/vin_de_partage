@@ -47,6 +47,8 @@ class Bottle < ApplicationRecord
   # Scopes and search
 
   scope :by_color, -> (color) { where(color:) }
+  scope :bookmarked_by, -> (user_id) { joins(:votes_for).where(votes: { voter_id: user_id, voter_type: "User", vote_scope: "bookmark" }) }
+
 
   pg_search_scope :search_general_information,
                   against: [:name, :domaine_name, :producer_name, :appelation, :region],

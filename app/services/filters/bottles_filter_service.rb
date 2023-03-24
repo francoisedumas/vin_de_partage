@@ -14,6 +14,7 @@ module Filters
       bottles = bottles.search_general_information(@params[:query]) if @params[:query].present?
       bottles = bottles.by_color(@params[:color]) if @params[:color].present?
       bottles.where(user_id: @user_id) if @params[:my_wine].present?
+      bottles = bottles.bookmarked_by(@user_id) if @params[:my_bookmarks].present?
       bottles
     end
   end

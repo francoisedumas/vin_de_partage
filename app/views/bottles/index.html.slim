@@ -12,6 +12,8 @@
         .flex.items-center.justify-center
           = check_box_tag :my_wine, true, params[:my_wine], class: "w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 transition duration-150 ease-in-out"
           = label_tag :my_wine, t(".my_wines"), class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          = check_box_tag :my_bookmarks, true, params[:my_bookmark], class: "ml-2 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 transition duration-150 ease-in-out"
+          = label_tag :my_bookmarks, t(".my_bookmarks"), class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
     = turbo_frame_tag "bottles", class:"grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8" do
       - @bottles.each do |bottle|
         .flex.justify-center.p-2
