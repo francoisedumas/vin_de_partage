@@ -35,3 +35,6 @@
 
 .byebug_history
 coverage
+
+# Rspec
+spec/examples.txt
